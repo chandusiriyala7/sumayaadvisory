@@ -11,7 +11,7 @@ export default function ContactCTA() {
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-block px-4 py-2 glass-gold rounded-full mb-4 scale-in">
                         <span className="text-academic-gold-700 font-semibold text-sm">
-                            🚀 Let's Get Started
+                            🚀 Let&apos;s Get Started
                         </span>
                     </div>
 

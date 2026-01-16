@@ -79,8 +79,8 @@ export default function SocialImpactPage() {
                                 of Tamil Nadu.
                             </p>
                             <p className="text-gray-600 italic">
-                                "When you educate a man, you change a life; when you educate a woman,
-                                you shape a community."
+                                &quot;When you educate a man, you change a life; when you educate a woman,
+                                you shape a community.&quot;
                             </p>
                         </Card>
 
@@ -126,7 +126,7 @@ export default function SocialImpactPage() {
                                 Education Initiatives
                             </h5>
                             <p className="text-sm text-gray-700">
-                                Adult literacy, girls' education support, and skill development programs
+                                Adult literacy, girls&apos; education support, and skill development programs
                             </p>
                         </Card>
 
@@ -209,7 +209,7 @@ export default function SocialImpactPage() {
                                 Ramanathapuram District Muslim Women Aid Society
                             </p>
                             <p className="text-xs text-gray-600">
-                                Supporting women's education, healthcare, and financial aid at district level
+                                Supporting women&apos;s education, healthcare, and financial aid at district level
                             </p>
                         </Card>
 
@@ -221,7 +221,7 @@ export default function SocialImpactPage() {
                                 Federation of Muslim Women Aid Societies of Tamil Nadu
                             </p>
                             <p className="text-xs text-gray-600">
-                                Coordinating statewide initiatives and advocating for minority women's rights
+                                Coordinating statewide initiatives and advocating for minority women&apos;s rights
                             </p>
                         </Card>
 
@@ -250,8 +250,8 @@ export default function SocialImpactPage() {
                                 Social Impact Philosophy
                             </h4>
                             <p className="text-lg text-gray-700 mb-4 italic">
-                                "When you educate a man, you change a life; when you educate a woman,
-                                you shape a community"
+                                &quot;When you educate a man, you change a life; when you educate a woman,
+                                you shape a community&quot;
                             </p>
                             <p className="text-gray-600">
                                 This guiding principle underlies all community engagement work, ensuring
