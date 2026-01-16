@@ -100,7 +100,7 @@ export default function ServicesPage() {
                             </h4>
                             <p className="text-gray-700">
                                 37+ years of transforming institutions, securing ₹5 Cr+ in grants,
-                                and achieving NAAC 'A' Grade accreditation.
+                                and achieving NAAC &apos;A&apos; Grade accreditation.
                             </p>
                         </Card>
 

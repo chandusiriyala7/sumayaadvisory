@@ -42,14 +42,14 @@ export default function AwardsPage() {
                                 </span>
                             </div>
                             <h4 className="text-2xl font-serif font-bold text-white mb-3">
-                                Chief Minister's Best Woman Social Worker Award
+                                Chief Minister&apos;s Best Woman Social Worker Award
                             </h4>
                             <p className="text-sm text-white/90 mb-2">
                                 Government of Tamil Nadu
                             </p>
                             <p className="text-white/80 text-sm">
                                 Prestigious honour with gold medal and citation for outstanding contribution
-                                to women's welfare and community development in the state.
+                                to women&apos;s welfare and community development in the state.
                             </p>
                         </Card>
 

@@ -112,10 +112,10 @@ export default function AboutPage() {
                             <p className="text-gray-700 mb-4">
                                 Since 1994, transformed TBAK College from a fledgling institution into a thriving
                                 autonomous college serving 2,000+ women students annually. Achieved autonomous status
-                                in 2005 and NAAC 'A' Grade accreditation (CGPA 3.16/4.0) in 2019.
+                                in 2005 and NAAC &apos;A&apos; Grade accreditation (CGPA 3.16/4.0) in 2019.
                             </p>
                             <ul className="space-y-2 text-sm text-gray-600">
-                                <li>• First Muslim minority women's institution to achieve autonomous status</li>
+                                <li>• First Muslim minority women&apos;s institution to achieve autonomous status</li>
                                 <li>• Established 4 research centres across disciplines</li>
                                 <li>• 50% graduate placement rate in reputed companies</li>
                             </ul>
@@ -190,7 +190,7 @@ export default function AboutPage() {
 
                     <p className="text-center text-gray-600 mt-8 max-w-3xl mx-auto">
                         Delivered invited talks, presented research, and forged academic collaborations
-                        across continents, representing India's excellence in education and research.
+                        across continents, representing India&apos;s excellence in education and research.
                     </p>
                 </div>
             </section>
