@@ -30,7 +30,7 @@ export default function AboutPage() {
                             <div className="sticky top-24">
                                 <div className="relative w-full aspect-square max-w-sm mx-auto mb-6">
                                     <Image
-                                        src="/images/sumaya.png"
+                                        src="/images/sumaya-3.png"
                                         alt="Dr. Sumaya"
                                         width={400}
                                         height={400}
