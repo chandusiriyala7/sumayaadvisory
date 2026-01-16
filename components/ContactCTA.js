@@ -19,7 +19,7 @@ export default function ContactCTA() {
                         Ready to Transform Your Institution?
                     </h2>
                     <p className="text-lg text-academic-blue-100 mb-8 fade-in-up delay-200 leading-relaxed">
-                        Let's discuss how my <span className="highlight-text text-white bg-academic-gold-500/30">37+ years of expertise</span> can help your institution achieve academic excellence,
+                        Let&apos;s discuss how my <span className="highlight-text text-white bg-academic-gold-500/30">37+ years of expertise</span> can help your institution achieve academic excellence,
                         secure accreditation, or build sustainable community impact programs.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-400">
