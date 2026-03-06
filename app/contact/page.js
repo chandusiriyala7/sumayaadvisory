@@ -16,7 +16,7 @@ export default function ContactPage() {
     }
 
     return (
-        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+        <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-white">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 origin-top-right"></div>
             <div className="container-custom relative z-10">
                 <SectionTitle
@@ -24,25 +24,25 @@ export default function ContactPage() {
                     subtitle="Initiate a dialogue for academic collaboration, strategic advisory, or social impact partnerships."
                 />
             </div>
-        </section><section className="pb-32 bg-white">
+        </section><section className="pb-16 md:pb-32 bg-white">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                         <div className="lg:col-span-5 space-y-12">
                             <div>
                                 <h3 className="text-xs font-black text-academic-gold-600 uppercase tracking-[0.4em] mb-8">Executive Channels</h3>
-                                <div className="space-y-8">
+                                <div className="space-y-6 md:space-y-8">
                                     <a href="mailto:contact@thenorthstar.com" className="group block focus:outline-none">
-                                        <div className="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 group-hover:bg-academic-blue-950 group-hover:border-academic-blue-900 transition-all duration-500">
-                                            <div className="text-academic-gold-500 text-sm font-bold mb-2 uppercase tracking-widest">Inquiries</div>
-                                            <div className="text-xl font-serif font-bold text-academic-blue-900 group-hover:text-white transition-colors">
+                                        <div className="p-6 md:p-8 bg-slate-50 rounded-[2rem] border border-slate-100 group-hover:bg-academic-blue-950 group-hover:border-academic-blue-900 transition-all duration-500">
+                                            <div className="text-academic-gold-500 text-[10px] md:text-sm font-bold mb-1 md:mb-2 uppercase tracking-widest">Inquiries</div>
+                                            <div className="text-lg md:text-xl font-serif font-bold text-academic-blue-900 group-hover:text-white transition-colors">
                                                 contact@thenorthstar.com
                                             </div>
                                         </div>
                                     </a>
                                     <a href="tel:+914567220235" className="group block focus:outline-none">
-                                        <div className="p-8 bg-white rounded-[2rem] border border-slate-200 group-hover:bg-academic-gold-500 transition-all duration-500">
-                                            <div className="text-academic-blue-900/40 text-sm font-bold mb-2 uppercase tracking-widest group-hover:text-black/50">Tele-Advisory</div>
-                                            <div className="text-xl font-serif font-bold text-academic-blue-900 group-hover:text-academic-blue-950 transition-colors">
+                                        <div className="p-6 md:p-8 bg-white rounded-[2rem] border border-slate-200 group-hover:bg-academic-gold-500 transition-all duration-500">
+                                            <div className="text-academic-blue-900/40 text-[10px] md:text-sm font-bold mb-1 md:mb-2 uppercase tracking-widest group-hover:text-black/50">Tele-Advisory</div>
+                                            <div className="text-lg md:text-xl font-serif font-bold text-academic-blue-900 group-hover:text-academic-blue-950 transition-colors">
                                                 +91 4567 220 235
                                             </div>
                                         </div>
@@ -69,9 +69,9 @@ export default function ContactPage() {
                         </div>
 
                         <div className="lg:col-span-7">
-                            <div className="bg-white p-12 md:p-16 rounded-[4rem] border border-slate-100 shadow-2xl relative">
-                                <h3 className="text-3xl font-serif font-bold text-academic-blue-950 mb-4">Direct Message</h3>
-                                <p className="text-slate-500 mb-12 font-light">Confidential and priority handling for all advisory requests.</p>
+                            <div className="bg-white p-8 md:p-16 rounded-[3rem] md:rounded-[4rem] border border-slate-100 shadow-2xl relative">
+                                <h3 className="text-2xl md:text-3xl font-serif font-bold text-academic-blue-950 mb-3 md:mb-4">Direct Message</h3>
+                                <p className="text-sm md:text-base text-slate-500 mb-8 md:mb-12 font-light">Confidential and priority handling for all advisory requests.</p>
 
                                 <form onSubmit={handleSubmit} className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

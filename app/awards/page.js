@@ -29,27 +29,27 @@ export default function AwardsPage() {
     ]
 
     return (
-        <><section className="relative pt-40 pb-24 overflow-hidden bg-slate-950 text-white">
+        <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-slate-950 text-white">
             <div className="absolute inset-0 bg-[url('/images/pattern-gold.png')] opacity-5"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-academic-blue-900/20 to-transparent"></div>
             <div className="container-custom relative z-10">
                 <div className="max-w-3xl">
-                    <div className="inline-block px-4 py-1 bg-academic-gold-500 text-academic-blue-950 text-[10px] font-black uppercase tracking-[0.3em] rounded-full mb-8">
+                    <div className="inline-block px-4 py-1 bg-academic-gold-500 text-academic-blue-950 text-[10px] font-black uppercase tracking-[0.3em] rounded-full mb-6 md:mb-8">
                         Distinguished Recognition
                     </div>
-                    <h1 className="text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight text-white">
+                    <h1 className="text-4xl md:text-8xl font-serif font-bold mb-6 md:mb-8 leading-tight text-white">
                         Hall of <span className="text-academic-gold-400">Excellence</span>
                     </h1>
-                    <p className="text-xl text-white/60 font-light leading-relaxed mb-12 border-l-2 border-academic-gold-500/30 pl-8">
+                    <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-8 md:mb-12 border-l-2 border-academic-gold-500/30 pl-6 md:pl-8">
                         A legacy of contribution across science, education, and humanitarian service recognized by state, national, and international bodies.
                     </p>
                 </div>
             </div>
-        </section><section className="py-24 bg-white relative">
+        </section><section className="py-16 md:py-24 bg-white relative">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                        <div className="lg:col-span-4 sticky top-32 h-fit">
-                            <h2 className="text-4xl font-serif font-bold text-academic-blue-900 mb-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                        <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-academic-blue-900 mb-6">
                                 Featured Recognition
                             </h2>
                             <p className="text-slate-500 leading-relaxed mb-8">
@@ -57,16 +57,16 @@ export default function AwardsPage() {
                             </p>
                             <div className="w-24 h-1 bg-academic-gold-500"></div>
                         </div>
-                        <div className="lg:col-span-8 space-y-12">
+                        <div className="lg:col-span-8 space-y-8 md:space-y-12">
                             {[
                                 { title: "DBT Star Status", val: "2023", desc: "Highest recognition for science education infrastructure in the region.", icon: "⭐" },
                                 { title: "State Best Teacher", val: "2019", desc: "Awarded for exceptional contribution to higher education and student mentorship.", icon: "🏅" }
                             ].map((feat, idx) => (
-                                <div key={idx} className="group relative p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:bg-academic-blue-950 hover:text-white transition-all duration-700">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                                <div key={idx} className="group relative p-8 md:p-12 bg-slate-50 rounded-[2.5rem] md:rounded-[3rem] border border-slate-100 hover:bg-academic-blue-950 hover:text-white transition-all duration-700">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
                                         <div>
-                                            <div className="text-academic-gold-500 font-bold mb-2 tracking-widest">{feat.val}</div>
-                                            <h3 className="text-3xl font-serif font-bold mb-4 group-hover:text-white transition-colors">{feat.title}</h3>
+                                            <div className="text-academic-gold-500 font-bold mb-1 md:mb-2 tracking-widest">{feat.val}</div>
+                                            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 group-hover:text-white transition-colors">{feat.title}</h3>
                                             <p className="text-slate-500 group-hover:text-white/60 font-light">{feat.desc}</p>
                                         </div>
                                         <div className="text-6xl grayscale group-hover:grayscale-0 transition-all opacity-20 group-hover:opacity-100">{feat.icon}</div>
@@ -99,15 +99,15 @@ export default function AwardsPage() {
                         ))}
                     </div>
                 </div>
-            </section><section className="py-24 bg-white relative">
+            </section><section className="py-16 md:py-24 bg-white relative">
                 <div className="container-custom">
-                    <div className="max-w-4xl mx-auto p-12 md:p-20 bg-slate-50 rounded-[4rem] border border-slate-100 shadow-xl relative overflow-hidden group">
+                    <div className="max-w-4xl mx-auto p-10 md:p-20 bg-slate-50 rounded-[3rem] md:rounded-[4rem] border border-slate-100 shadow-xl relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-academic-gold-500/5 blur-[80px] rounded-full translate-x-1/3 -translate-y-1/3 group-hover:bg-academic-gold-500/10 transition-colors duration-1000"></div>
                         <div className="relative z-10 text-center">
-                            <h3 className="text-4xl font-serif font-bold text-academic-blue-950 mb-8">
+                            <h3 className="text-2xl md:text-4xl font-serif font-bold text-academic-blue-950 mb-6 md:mb-8">
                                 Accreditations & <span className="text-academic-gold-500">Memberships</span>
                             </h3>
-                            <div className="flex flex-wrap justify-center gap-4">
+                            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
                                 {[
                                     "UGC Accredited Supervisor",
                                     "Board of Studies Member",

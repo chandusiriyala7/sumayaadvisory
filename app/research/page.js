@@ -31,7 +31,7 @@ export default function ResearchPage() {
     ]
 
     return (
-        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+        <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-white">
             <div className="absolute top-0 right-0 w-1/4 h-full bg-slate-50 -skew-x-12 origin-top-right"></div>
             <div className="container-custom relative z-10">
                 <SectionTitle
@@ -39,17 +39,17 @@ export default function ResearchPage() {
                     subtitle="Advancing the frontiers of Food Science and Nutrition through rigorous inquiry and innovative patent-grade research."
                 />
             </div>
-        </section><section className="pb-24 bg-white">
+        </section><section className="pb-16 md:pb-24 bg-white">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {researchHighlights.map((item, idx) => (
                             <div key={idx} className="group relative">
                                 <div className="absolute inset-0 bg-academic-blue-900 rounded-[2rem] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
-                                <div className="p-10 border-b-2 border-slate-100 group-hover:border-academic-gold-500 transition-all duration-700 text-center">
-                                    <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">{item.icon}</div>
-                                    <div className="text-5xl font-serif font-bold text-academic-blue-950 mb-4 tracking-tight">{item.value}</div>
-                                    <h4 className="text-sm font-bold text-academic-gold-600 uppercase tracking-widest mb-2">{item.title}</h4>
-                                    <p className="text-xs text-slate-500 font-medium">{item.desc}</p>
+                                <div className="p-6 md:p-10 border-b-2 border-slate-100 group-hover:border-academic-gold-500 transition-all duration-700 text-center">
+                                    <div className="text-3xl md:text-4xl mb-4 md:mb-6 grayscale group-hover:grayscale-0 transition-all">{item.icon}</div>
+                                    <div className="text-3xl md:text-5xl font-serif font-bold text-academic-blue-950 mb-2 md:mb-4 tracking-tight">{item.value}</div>
+                                    <h4 className="text-[10px] md:text-sm font-bold text-academic-gold-600 uppercase tracking-widest mb-1 md:mb-2">{item.title}</h4>
+                                    <p className="text-[10px] md:text-xs text-slate-500 font-medium leading-tight">{item.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -86,28 +86,28 @@ export default function ResearchPage() {
                         ))}
                     </div>
                 </div>
-            </section><section className="py-24 bg-white">
+            </section><section className="py-16 md:py-24 bg-white">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8">
-                            <h3 className="text-4xl font-serif font-bold text-academic-blue-900">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-academic-blue-900">
                                 Doctoral Mentorship
                             </h3>
-                            <p className="text-xl text-slate-500 font-light leading-relaxed">
+                            <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">
                                 Curating the next generation of researchers with a focus on high-impact publications and socially relevant research methodologies.
                             </p>
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="p-8 bg-academic-blue-950 rounded-3xl text-white">
-                                    <div className="text-4xl font-bold text-academic-gold-400 mb-2">07</div>
-                                    <div className="text-xs font-bold uppercase tracking-widest opacity-60">Ph.D. Scholars Guided</div>
+                            <div className="grid grid-cols-2 gap-4 md:gap-6">
+                                <div className="p-6 md:p-8 bg-academic-blue-950 rounded-[2rem] md:rounded-3xl text-white">
+                                    <div className="text-3xl md:text-4xl font-bold text-academic-gold-400 mb-1 md:mb-2">07</div>
+                                    <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-60">Ph.D. Scholars Guided</div>
                                 </div>
-                                <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
-                                    <div className="text-4xl font-bold text-academic-blue-900 mb-2">12</div>
-                                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400">M.Phil. Mentorships</div>
+                                <div className="p-6 md:p-8 bg-slate-50 rounded-[2rem] md:rounded-3xl border border-slate-100">
+                                    <div className="text-3xl md:text-4xl font-bold text-academic-blue-900 mb-1 md:mb-2">12</div>
+                                    <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">M.Phil. Mentorships</div>
                                 </div>
                             </div>
                         </div>
-                        <Card className="bg-academic-blue-900/95 backdrop-blur-xl border border-white/10 text-white p-12 relative overflow-hidden group">
+                        <Card className="bg-academic-blue-900/95 backdrop-blur-xl border border-white/10 text-white p-8 md:p-12 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-academic-gold-500/10 blur-[80px] rounded-full"></div>
                             <h4 className="text-sm font-bold text-academic-gold-400 uppercase tracking-widest mb-8">Competitive Funding</h4>
                             <div className="space-y-12">

@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ServicesPage() {
     return (
-        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+        <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-white">
             <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-50 skew-x-6 origin-top-left"></div>
             <div className="container-custom relative z-10">
                 <SectionTitle
@@ -18,13 +18,13 @@ export default function ServicesPage() {
                     subtitle="Comprehensive advisory services engineered to elevate academic institutions and research organizations."
                 />
             </div>
-        </section><section className="pb-24 bg-white">
-                <div className="container-custom space-y-24">
+        </section><section className="pb-16 md:pb-24 bg-white">
+                <div className="container-custom space-y-16 md:space-y-24">
                     {services.map((service, index) => (
                         <div key={service.id} className="relative slide-in-bottom">
-                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                                 {/* Service Header & Visual */}
-                                <div className="lg:col-span-5 sticky top-32">
+                                <div className="lg:col-span-5 lg:sticky lg:top-32">
                                     <div className="relative group">
                                         <div className="absolute inset-0 bg-academic-gold-500 rounded-[2.5rem] -rotate-2 scale-[1.02] opacity-10 blur-xl group-hover:rotate-0 transition-transform duration-700"></div>
                                         <Card className="aspect-square flex flex-col items-center justify-center text-center p-12 border-slate-100 group-hover:border-academic-gold-300 transition-colors">

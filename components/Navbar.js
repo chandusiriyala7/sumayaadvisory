@@ -46,8 +46,8 @@ export default function Navbar() {
             <div className="container-custom">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-3">
-                        <div className="relative w-12 h-12">
+                    <Link href="/" className="flex items-center space-x-2 md:space-x-3">
+                        <div className="relative w-10 h-10 md:w-12 md:h-12">
                             <Image
                                 src="/images/north-star-logo.png"
                                 alt="The North Star"
@@ -55,7 +55,7 @@ export default function Navbar() {
                                 className="object-contain"
                             />
                         </div>
-                        <div className="text-2xl font-serif font-bold text-academic-blue-900">
+                        <div className="text-xl md:text-2xl font-serif font-bold text-academic-blue-900 leading-tight">
                             The North Star
                         </div>
                     </Link>

@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+        <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-white">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-6 origin-top-right"></div>
             <div className="container-custom relative z-10">
                 <SectionTitle
@@ -19,11 +19,11 @@ export default function AboutPage() {
                     subtitle="Driven by a passion for academic leadership and transformative social impact."
                 />
             </div>
-        </section><section className="pb-24 bg-white relative">
+        </section><section className="pb-16 md:pb-24 bg-white relative">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                         {/* Profile Gallery/Card */}
-                        <div className="lg:col-span-5 sticky top-32">
+                        <div className="lg:col-span-5 lg:sticky lg:top-32">
                             <div className="relative group">
                                 <div className="absolute inset-0 bg-academic-gold-500 rounded-[3rem] rotate-3 scale-[1.02] opacity-20 blur-2xl group-hover:rotate-6 transition-transform duration-1000"></div>
                                 <div className="relative bg-white p-4 rounded-[3rem] shadow-2xl border border-slate-100">

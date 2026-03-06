@@ -39,35 +39,35 @@ export default function HeroSection() {
                             </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-academic-blue-900 leading-[1.1]">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-academic-blue-900 leading-[1.2] md:leading-[1.1]">
                             The <span className="text-academic-gold-500 underline decoration-academic-gold-200 underline-offset-8">North Star</span> for Institutional Excellence
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-600 max-w-xl font-light leading-relaxed">
+                        <p className="text-lg md:text-2xl text-slate-600 max-w-xl font-light leading-relaxed">
                             {profile.heroSubtitle}. Empowering academic leadership through decades of proven expertise and visionary strategy.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-6 pt-4">
-                            <Link href="/contact" className="btn-primary hover-lift text-lg font-bold">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <Link href="/contact" className="btn-primary hover-lift text-base md:text-lg font-bold">
                                 Request Consultation
                             </Link>
-                            <Link href="/services" className="btn-secondary hover-lift text-lg font-bold">
+                            <Link href="/services" className="btn-secondary hover-lift text-base md:text-lg font-bold">
                                 Our Services
                             </Link>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-8 pt-10 border-t border-slate-200">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-10 border-t border-slate-200">
                             <div>
-                                <div className="text-3xl font-bold text-academic-blue-900">37+</div>
-                                <div className="text-sm text-slate-500 font-medium">Years Experience</div>
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">37+</div>
+                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Years Experience</div>
                             </div>
                             <div>
-                                <div className="text-3xl font-bold text-academic-blue-900">27+</div>
-                                <div className="text-sm text-slate-500 font-medium">Prestigious Awards</div>
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">27+</div>
+                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Awards Won</div>
                             </div>
-                            <div>
-                                <div className="text-3xl font-bold text-academic-blue-900">5Cr+</div>
-                                <div className="text-sm text-slate-500 font-medium">Research Grants</div>
+                            <div className="col-span-2 md:col-span-1 border-t md:border-t-0 pt-6 md:pt-0">
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">5Cr+</div>
+                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Research Grants</div>
                             </div>
                         </div>
                     </div>
