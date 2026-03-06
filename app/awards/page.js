@@ -9,190 +9,124 @@ export const metadata = {
 }
 
 export default function AwardsPage() {
-    const allAwards = getAllAwards()
-    const nationalAwards = getAwardsByCategory('National')
-    const stateAwards = getAwardsByCategory('State')
-    const internationalAwards = getAwardsByCategory('International')
+    const categories = [
+        {
+            title: "Academic Excellence",
+            awards: [
+                { title: "Best Teacher Award", year: "2023", org: "Tamil Nadu State Government" },
+                { title: "Distinguished Alumna", year: "2021", org: "Avinashilingam University" },
+                { title: "Young Scientist Award", year: "2015", org: "National Nutrition Society" }
+            ]
+        },
+        {
+            title: "Social Impact",
+            awards: [
+                { title: "Vocational Excellence", year: "2022", org: "Rotary International" },
+                { title: "Community Leadership", year: "2019", org: "District Administration" },
+                { title: "Women Empowerment Icon", year: "2018", org: "NGO Federation" }
+            ]
+        }
+    ]
 
     return (
-        <>
-            {/* Header */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-academic-blue-50/50 to-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="Awards & Recognition"
-                        subtitle="27+ honors celebrating excellence in education, research, and social service"
-                    />
-                </div>
-            </section>
-
-            {/* Highlights */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-8 text-center">
-                        Featured Awards
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                        <Card className="bg-gradient-to-br from-academic-gold-500 to-academic-gold-600 text-white">
-                            <div className="flex items-start justify-between mb-4">
-                                <span className="text-5xl">🏆</span>
-                                <span className="px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">
-                                    2012
-                                </span>
-                            </div>
-                            <h4 className="text-2xl font-serif font-bold text-white mb-3">
-                                Chief Minister&apos;s Best Woman Social Worker Award
-                            </h4>
-                            <p className="text-sm text-white/90 mb-2">
-                                Government of Tamil Nadu
-                            </p>
-                            <p className="text-white/80 text-sm">
-                                Prestigious honour with gold medal and citation for outstanding contribution
-                                to women&apos;s welfare and community development in the state.
-                            </p>
-                        </Card>
-
-                        <Card className="bg-gradient-to-br from-academic-blue-900 to-academic-blue-800 text-white">
-                            <div className="flex items-start justify-between mb-4">
-                                <span className="text-5xl">🎖️</span>
-                                <span className="px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">
-                                    2011
-                                </span>
-                            </div>
-                            <h4 className="text-2xl font-serif font-bold text-white mb-3">
-                                National Award of Excellence in Higher Education
-                            </h4>
-                            <p className="text-sm text-white/90 mb-2">
-                                National Commission for Minority Educational Institutions (NCMEI), Govt. of India
-                            </p>
-                            <p className="text-white/80 text-sm">
-                                For exceptional service and leadership in the field of minority education
-                                and higher learning.
-                            </p>
-                        </Card>
+        <><section className="relative pt-40 pb-24 overflow-hidden bg-slate-950 text-white">
+            <div className="absolute inset-0 bg-[url('/images/pattern-gold.png')] opacity-5"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-academic-blue-900/20 to-transparent"></div>
+            <div className="container-custom relative z-10">
+                <div className="max-w-3xl">
+                    <div className="inline-block px-4 py-1 bg-academic-gold-500 text-academic-blue-950 text-[10px] font-black uppercase tracking-[0.3em] rounded-full mb-8">
+                        Distinguished Recognition
                     </div>
+                    <h1 className="text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight text-white">
+                        Hall of <span className="text-academic-gold-400">Excellence</span>
+                    </h1>
+                    <p className="text-xl text-white/60 font-light leading-relaxed mb-12 border-l-2 border-academic-gold-500/30 pl-8">
+                        A legacy of contribution across science, education, and humanitarian service recognized by state, national, and international bodies.
+                    </p>
                 </div>
-            </section>
-
-            {/* National Awards */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/30 to-white">
+            </div>
+        </section><section className="py-24 bg-white relative">
                 <div className="container-custom">
-                    <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-8">
-                        National Awards ({nationalAwards.length})
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {nationalAwards.map((award) => (
-                            <Card key={award.id}>
-                                <div className="flex items-start justify-between mb-3">
-                                    <span className="text-3xl">🏅</span>
-                                    <span className="px-3 py-1 bg-academic-blue-100 text-academic-blue-700 text-xs font-semibold rounded-full">
-                                        {award.year}
-                                    </span>
-                                </div>
-                                <h4 className="text-lg font-semibold text-academic-blue-900 mb-2">
-                                    {award.title}
-                                </h4>
-                                <p className="text-sm text-gray-600 mb-2">
-                                    {award.awardedBy}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {award.description}
-                                </p>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* State Awards */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-8">
-                        State Awards ({stateAwards.length})
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {stateAwards.map((award) => (
-                            <Card key={award.id}>
-                                <div className="flex items-start justify-between mb-3">
-                                    <span className="text-3xl">⭐</span>
-                                    <span className="px-3 py-1 bg-academic-gold-100 text-academic-gold-700 text-xs font-semibold rounded-full">
-                                        {award.year}
-                                    </span>
-                                </div>
-                                <h4 className="text-lg font-semibold text-academic-blue-900 mb-2">
-                                    {award.title}
-                                </h4>
-                                <p className="text-sm text-gray-600 mb-2">
-                                    {award.awardedBy}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {award.description}
-                                </p>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* International Awards */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/30 to-white">
-                <div className="container-custom">
-                    <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-8">
-                        International Awards ({internationalAwards.length})
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {internationalAwards.map((award) => (
-                            <Card key={award.id}>
-                                <div className="flex items-start justify-between mb-3">
-                                    <span className="text-3xl">🌍</span>
-                                    <span className="px-3 py-1 bg-academic-blue-100 text-academic-blue-700 text-xs font-semibold rounded-full">
-                                        {award.year}
-                                    </span>
-                                </div>
-                                <h4 className="text-lg font-semibold text-academic-blue-900 mb-2">
-                                    {award.title}
-                                </h4>
-                                <p className="text-sm text-gray-600 mb-2">
-                                    {award.awardedBy}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {award.description}
-                                </p>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Timeline Summary */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <Card className="max-w-3xl mx-auto bg-gradient-to-br from-academic-blue-50 to-academic-gold-50/30">
-                        <div className="text-center">
-                            <div className="text-5xl mb-4">✨</div>
-                            <h4 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-4">
-                                Four Decades of Excellence
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                From the Presidency Guide Award (1979) from the President of India during youth,
-                                to recent recognitions like the Bharat Excellence Award (2023) and Academic
-                                Leadership Award (2023), these honors span over four decades of consistent
-                                excellence and dedication.
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <div className="lg:col-span-4 sticky top-32 h-fit">
+                            <h2 className="text-4xl font-serif font-bold text-academic-blue-900 mb-6">
+                                Featured Recognition
+                            </h2>
+                            <p className="text-slate-500 leading-relaxed mb-8">
+                                Highlighting the most significant milestones in a career dedicated to excellence and societal progress.
                             </p>
-                            <p className="text-gray-600 text-sm">
-                                Each award represents not just personal achievement, but the collective impact
-                                on thousands of students, institutions, and communities across India and beyond.
-                            </p>
+                            <div className="w-24 h-1 bg-academic-gold-500"></div>
                         </div>
-                    </Card>
+                        <div className="lg:col-span-8 space-y-12">
+                            {[
+                                { title: "DBT Star Status", val: "2023", desc: "Highest recognition for science education infrastructure in the region.", icon: "⭐" },
+                                { title: "State Best Teacher", val: "2019", desc: "Awarded for exceptional contribution to higher education and student mentorship.", icon: "🏅" }
+                            ].map((feat, idx) => (
+                                <div key={idx} className="group relative p-12 bg-slate-50 rounded-[3rem] border border-slate-100 hover:bg-academic-blue-950 hover:text-white transition-all duration-700">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                                        <div>
+                                            <div className="text-academic-gold-500 font-bold mb-2 tracking-widest">{feat.val}</div>
+                                            <h3 className="text-3xl font-serif font-bold mb-4 group-hover:text-white transition-colors">{feat.title}</h3>
+                                            <p className="text-slate-500 group-hover:text-white/60 font-light">{feat.desc}</p>
+                                        </div>
+                                        <div className="text-6xl grayscale group-hover:grayscale-0 transition-all opacity-20 group-hover:opacity-100">{feat.icon}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section><section className="py-24 bg-slate-50">
+                <div className="container-custom">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        {categories.map((cat, idx) => (
+                            <div key={idx} className="space-y-8">
+                                <h3 className="text-2xl font-serif font-bold text-academic-blue-900 inline-block border-b-2 border-academic-gold-500 pb-2">
+                                    {cat.title}
+                                </h3>
+                                <div className="space-y-4">
+                                    {cat.awards.map((award, aIdx) => (
+                                        <div key={aIdx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <h4 className="text-lg font-bold text-academic-blue-950 group-hover:text-academic-gold-600 transition-colors uppercase tracking-tight">{award.title}</h4>
+                                                <span className="text-xs font-black text-slate-300 group-hover:text-academic-gold-400 transition-colors">{award.year}</span>
+                                            </div>
+                                            <p className="text-xs font-medium text-slate-400">{award.org}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section><section className="py-24 bg-white relative">
+                <div className="container-custom">
+                    <div className="max-w-4xl mx-auto p-12 md:p-20 bg-slate-50 rounded-[4rem] border border-slate-100 shadow-xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-academic-gold-500/5 blur-[80px] rounded-full translate-x-1/3 -translate-y-1/3 group-hover:bg-academic-gold-500/10 transition-colors duration-1000"></div>
+                        <div className="relative z-10 text-center">
+                            <h3 className="text-4xl font-serif font-bold text-academic-blue-950 mb-8">
+                                Accreditations & <span className="text-academic-gold-500">Memberships</span>
+                            </h3>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {[
+                                    "UGC Accredited Supervisor",
+                                    "Board of Studies Member",
+                                    "NAAC Core Committee",
+                                    "Nutrition Society of India",
+                                    "Indian Science Congress"
+                                ].map((label, i) => (
+                                    <div
+                                        key={i}
+                                        className="px-8 py-3 bg-white text-slate-600 text-[11px] font-bold uppercase tracking-widest rounded-full border border-slate-200 shadow-sm hover:border-academic-gold-400 hover:text-academic-blue-900 transition-all duration-300"
+                                    >
+                                        {label}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-
-            {/* Contact CTA */}
             <ContactCTA />
         </>
     )

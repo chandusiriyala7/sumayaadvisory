@@ -9,263 +9,101 @@ export const metadata = {
 
 export default function SocialImpactPage() {
     return (
-        <>
-            {/* Header */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-academic-blue-50/50 to-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="Social Impact & Community Development"
-                        subtitle="Transforming lives through education, empowerment, and sustainable development"
-                    />
-                </div>
-            </section>
-
-            {/* Impact Stats */}
-            <section className="section-padding bg-white">
+        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+            <div className="absolute top-0 left-0 w-2/5 h-full bg-slate-50 skew-x-12 origin-top-left"></div>
+            <div className="container-custom relative z-10">
+                <SectionTitle
+                    title="Societal Transformation"
+                    subtitle="Bridging institutional excellence with grassroots empowerment to build a more equitable future."
+                />
+            </div>
+        </section><section className="pb-24 bg-white">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <Card className="text-center bg-gradient-to-br from-academic-blue-900 to-academic-blue-800 text-white">
-                            <div className="text-4xl mb-3">👥</div>
-                            <div className="text-4xl font-bold text-white mb-2">20,000+</div>
-                            <h4 className="text-xl font-semibold text-white mb-2">
-                                Families Empowered
-                            </h4>
-                            <p className="text-academic-blue-100 text-sm">
-                                Through education, self-help groups, and livelihood initiatives
-                            </p>
-                        </Card>
-
-                        <Card className="text-center bg-gradient-to-br from-academic-gold-600 to-academic-gold-500 text-white">
-                            <div className="text-4xl mb-3">🤝</div>
-                            <div className="text-4xl font-bold text-white mb-2">888</div>
-                            <h4 className="text-xl font-semibold text-white mb-2">
-                                Self-Help Groups
-                            </h4>
-                            <p className="text-white/90 text-sm">
-                                Comprising 18,850 women across rural coastal communities
-                            </p>
-                        </Card>
-
-                        <Card className="text-center bg-gradient-to-br from-academic-blue-700 to-academic-blue-600 text-white">
-                            <div className="text-4xl mb-3">🏠</div>
-                            <div className="text-4xl font-bold text-white mb-2">2,000</div>
-                            <h4 className="text-xl font-semibold text-white mb-2">
-                                Homes Rebuilt
-                            </h4>
-                            <p className="text-academic-blue-100 text-sm">
-                                Post-2004 tsunami disaster relief and rehabilitation
-                            </p>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* Seethakathi NGO */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/30 to-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="Seethakathi NGO Leadership"
-                        subtitle="Director, Women's Development Organization (Since 2002)"
-                    />
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        <Card>
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-4">
-                                Mission & Vision
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                Leading a non-governmental organization focused on empowering underprivileged
-                                women through education and entrepreneurship across rural coastal communities
-                                of Tamil Nadu.
-                            </p>
-                            <p className="text-gray-600 italic">
-                                &quot;When you educate a man, you change a life; when you educate a woman,
-                                you shape a community.&quot;
-                            </p>
-                        </Card>
-
-                        <Card className="bg-academic-blue-50">
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-4">
-                                Key Achievements
-                            </h4>
-                            <ul className="space-y-3 text-gray-700">
-                                <li className="flex items-start">
-                                    <span className="text-academic-gold-500 mr-3 mt-1">✓</span>
-                                    <span>Established 888 women Self-Help Groups (18,850 members)</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-academic-gold-500 mr-3 mt-1">✓</span>
-                                    <span>Skill development workshops and micro-enterprise training</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-academic-gold-500 mr-3 mt-1">✓</span>
-                                    <span>Income-generating initiatives (food processing, artisan crafts)</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="text-academic-gold-500 mr-3 mt-1">✓</span>
-                                    <span>Financial independence for thousands of rural women</span>
-                                </li>
-                            </ul>
-                        </Card>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Card className="bg-white">
-                            <div className="text-3xl mb-3">💼</div>
-                            <h5 className="font-semibold text-academic-blue-900 mb-2">
-                                Livelihood Programs
-                            </h5>
-                            <p className="text-sm text-gray-700">
-                                Food processing, artisan crafts, small-scale trade, and entrepreneurship training
-                            </p>
-                        </Card>
-
-                        <Card className="bg-white">
-                            <div className="text-3xl mb-3">📚</div>
-                            <h5 className="font-semibold text-academic-blue-900 mb-2">
-                                Education Initiatives
-                            </h5>
-                            <p className="text-sm text-gray-700">
-                                Adult literacy, girls&apos; education support, and skill development programs
-                            </p>
-                        </Card>
-
-                        <Card className="bg-white">
-                            <div className="text-3xl mb-3">💪</div>
-                            <h5 className="font-semibold text-academic-blue-900 mb-2">
-                                Empowerment Focus
-                            </h5>
-                            <p className="text-sm text-gray-700">
-                                Building self-confidence, financial independence, and community leadership
-                            </p>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* Disaster Relief */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="Disaster Relief & Rehabilitation"
-                        subtitle="Leading large-scale community recovery efforts"
-                    />
-
-                    <Card className="max-w-4xl mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="md:col-span-1">
-                                <div className="text-5xl mb-4">🌊</div>
-                                <h4 className="text-2xl font-serif font-semibold text-academic-blue-900 mb-2">
-                                    2004 Tsunami Relief
-                                </h4>
-                                <p className="text-sm text-gray-600">
-                                    Ramanathapuram District, Tamil Nadu
-                                </p>
-                            </div>
-
-                            <div className="md:col-span-2">
-                                <p className="text-gray-700 mb-4">
-                                    Coordinated large-scale disaster relief efforts in the aftermath of the
-                                    2004 Indian Ocean tsunami, collaborating with the Emergency Tsunami Relief
-                                    Project (Government of Tamil Nadu) and local authorities to rebuild affected
-                                    coastal communities.
-                                </p>
-
-                                <div className="bg-academic-blue-50 p-4 rounded-lg mb-4">
-                                    <h5 className="font-semibold text-academic-blue-900 mb-2">
-                                        Major Achievement:
-                                    </h5>
-                                    <p className="text-gray-700">
-                                        Facilitated construction of <strong>2,000 homes</strong> (2006) for displaced
-                                        families, providing safe housing and restoring hope for coastal communities.
-                                    </p>
+                        {/* Impact Cards */}
+                        {[
+                            { icon: '👥', val: '20k+', title: 'Families Empowered', desc: 'Through strategic livelihood initiatives.', bgClass: 'bg-academic-blue-950' },
+                            { icon: '🤝', val: '888', title: 'Self-Help Groups', desc: 'Active financial clusters across Tamil Nadu.', bgClass: 'bg-academic-gold-600' },
+                            { icon: '🏠', val: '2k', title: 'Homes Restored', desc: 'Post-disaster rehabilitation projects.', bgClass: 'bg-academic-blue-700' }
+                        ].map((stat, idx) => (
+                            <div key={idx} className="relative group overflow-hidden rounded-[2.5rem]">
+                                <div className={`p-12 h-full ${stat.bgClass} text-white transition-transform duration-700 group-hover:scale-105`}>
+                                    <div className="text-5xl mb-6 opacity-20">{stat.icon}</div>
+                                    <div className="text-6xl font-serif font-bold mb-4">{stat.val}</div>
+                                    <h4 className="text-lg font-bold tracking-widest uppercase mb-4 opacity-70">{stat.title}</h4>
+                                    <p className="text-sm opacity-50 font-medium leading-relaxed">{stat.desc}</p>
                                 </div>
-
-                                <p className="text-sm text-gray-600">
-                                    This massive rehabilitation project showcased exceptional ability to mobilize
-                                    resources and drive community projects during crises, making lasting impact
-                                    on thousands of lives.
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section><section className="py-24 bg-slate-900 text-white relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-academic-blue-900/40 to-transparent"></div>
+                <div className="container-custom relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                        <div className="lg:col-span-12">
+                            <SectionTitle
+                                title="Seethakathi NGO Leadership"
+                                subtitle="Directing large-scale women development organizations since 2002."
+                                light={true}
+                            />
+                        </div>
+                        <div className="lg:col-span-5 space-y-8">
+                            <div className="p-10 bg-white/5 backdrop-blur-lg rounded-[2.5rem] border border-white/10 hover:border-academic-gold-500/50 transition-colors">
+                                <h4 className="text-3xl font-serif font-bold text-academic-gold-400 mb-6 italic">
+                                    &quot;When you empower a woman, you shape a civilization.&quot;
+                                </h4>
+                                <p className="text-white/80 font-light leading-relaxed">
+                                    Our mission focuses on the intersection of financial literacy, micro-enterprise, and individual dignity to uplift coastal and rural communities.
                                 </p>
                             </div>
                         </div>
-                    </Card>
-                </div>
-            </section>
-
-            {/* Leadership Roles */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/30 to-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="Women's Welfare Leadership"
-                        subtitle="Leading multiple organizations for women's rights and empowerment"
-                    />
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <Card className="bg-white">
-                            <h4 className="text-lg font-serif font-semibold text-academic-blue-900 mb-3">
-                                Honorary Secretary
-                            </h4>
-                            <p className="text-sm text-gray-700 mb-2">
-                                Ramanathapuram District Muslim Women Aid Society
-                            </p>
-                            <p className="text-xs text-gray-600">
-                                Supporting women&apos;s education, healthcare, and financial aid at district level
-                            </p>
-                        </Card>
-
-                        <Card className="bg-white">
-                            <h4 className="text-lg font-serif font-semibold text-academic-blue-900 mb-3">
-                                General Secretary
-                            </h4>
-                            <p className="text-sm text-gray-700 mb-2">
-                                Federation of Muslim Women Aid Societies of Tamil Nadu
-                            </p>
-                            <p className="text-xs text-gray-600">
-                                Coordinating statewide initiatives and advocating for minority women&apos;s rights
-                            </p>
-                        </Card>
-
-                        <Card className="bg-white">
-                            <h4 className="text-lg font-serif font-semibold text-academic-blue-900 mb-3">
-                                Secretary
-                            </h4>
-                            <p className="text-sm text-gray-700 mb-2">
-                                Association of Muslim Professionals (Ramanathapuram Chapter)
-                            </p>
-                            <p className="text-xs text-gray-600">
-                                Bridging professional community with social causes and youth mentorship
-                            </p>
-                        </Card>
+                        <div className="lg:col-span-7">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                {[
+                                    { icon: '💼', title: 'Livelihood Programs', desc: 'Food processing & artisan crafts trade.' },
+                                    { icon: '📚', title: 'Educational Access', desc: 'Adult literacy & girls scholarship funds.' },
+                                    { icon: '🌍', title: 'Civic Advocacy', desc: 'Advocating for minority women rights.' },
+                                    { icon: '⚓', title: 'Coastal Resilience', desc: 'Special support for fishing communities.' }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="p-8 bg-white/5 border border-white/5 rounded-3xl hover:bg-white/10 transition-colors">
+                                        <div className="text-3xl mb-4">{item.icon}</div>
+                                        <h5 className="text-lg font-serif font-bold mb-2">{item.title}</h5>
+                                        <p className="text-xs text-white/40 leading-relaxed font-medium">{item.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            {/* Impact Philosophy */}
-            <section className="section-padding bg-white">
+            </section><section className="py-24 bg-white">
                 <div className="container-custom">
-                    <Card className="max-w-3xl mx-auto bg-gradient-to-br from-academic-gold-50 to-academic-blue-50 border-2 border-academic-gold-200">
-                        <div className="text-center">
-                            <div className="text-5xl mb-4">💫</div>
-                            <h4 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-4">
-                                Social Impact Philosophy
-                            </h4>
-                            <p className="text-lg text-gray-700 mb-4 italic">
-                                &quot;When you educate a man, you change a life; when you educate a woman,
-                                you shape a community&quot;
-                            </p>
-                            <p className="text-gray-600">
-                                This guiding principle underlies all community engagement work, ensuring
-                                that educational mission and NGO activities align with broader social
-                                development goals: poverty alleviation, gender equity, health and nutrition,
-                                and sustainable livelihoods.
-                            </p>
+                    <div className="max-w-5xl mx-auto rounded-[3.5rem] bg-slate-50 border border-slate-100 p-16 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-academic-blue-900/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                            <div className="md:col-span-4 text-center md:text-left">
+                                <div className="text-7xl mb-6">🌊</div>
+                                <h4 className="text-4xl font-serif font-bold text-academic-blue-950 mb-4 leading-tight">
+                                    2004 Tsunami Rehabilitation
+                                </h4>
+                                <div className="inline-block px-4 py-1 bg-academic-blue-100 text-academic-blue-700 text-[10px] font-black uppercase tracking-widest rounded-full">
+                                    Crisis Management
+                                </div>
+                            </div>
+                            <div className="md:col-span-8 space-y-6">
+                                <p className="text-xl text-slate-500 font-light leading-relaxed">
+                                    Leading the Ramanathapuram district relief efforts, coordinating with state agencies to restore dignity and safety to coastal families.
+                                </p>
+                                <div className="p-8 glass-gold rounded-3xl border border-academic-gold-200">
+                                    <div className="text-3xl font-serif font-bold text-academic-blue-900 mb-2">2,000 Homes</div>
+                                    <p className="text-sm font-medium text-slate-600">Complete construction and relocation project finalized in 2006, creating sustainable habitats for displaced communities.</p>
+                                </div>
+                            </div>
                         </div>
-                    </Card>
+                    </div>
                 </div>
-            </section>
-
-            {/* Contact CTA */}
-            <ContactCTA />
+            </section><ContactCTA />
         </>
     )
 }
+

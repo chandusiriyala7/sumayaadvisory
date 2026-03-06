@@ -11,7 +11,7 @@ export default function AwardsHighlight() {
             {featuredAwards.map((award, index) => (
                 <Card
                     key={award.id}
-                    className={`relative glass-dark hover-lift fade-in-up overflow-hidden group ${delayClasses[index]}`}
+                    className={`relative glass border-slate-100 hover:border-academic-gold-300 transition-all duration-500 rounded-3xl p-8 group ${delayClasses[index]}`}
                 >
                     {/* Shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -31,15 +31,15 @@ export default function AwardsHighlight() {
                     <p className="text-xs text-gray-600 leading-relaxed">
                         {award.description}
                     </p>
-                    <div className="mt-3 pt-3 border-t border-academic-blue-200">
-                        <span className="inline-block px-2 py-1 bg-academic-blue-100 text-academic-blue-800 text-xs font-semibold rounded">
+                    <div className="mt-4 pt-4 border-t border-slate-100">
+                        <span className="inline-block px-3 py-1 bg-academic-blue-50 text-academic-blue-800 text-xs font-bold rounded-full uppercase tracking-wider">
                             {award.category} Award
                         </span>
                     </div>
                 </Card>
             ))}
 
-            <Card className="flex items-center justify-center glass-gold border-2 border-dashed border-academic-gold-400 hover-glow scale-in delay-600">
+            <Card className="flex items-center justify-center glass border-2 border-dashed border-academic-gold-400 hover:border-solid hover:bg-academic-gold-50/30 transition-all duration-500 rounded-3xl p-8">
                 <div className="text-center">
                     <div className="text-5xl mb-3 animate-pulse">✨</div>
                     <p className="text-academic-blue-900 font-bold text-xl mb-2 highlight-text">27+ Awards</p>

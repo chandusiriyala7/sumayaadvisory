@@ -14,7 +14,7 @@ export default function ServicesGrid({ showAll = false }) {
             {services.map((service, index) => (
                 <Card
                     key={service.id}
-                    className={`flex flex-col h-full glass-dark hover-lift fade-in-up relative overflow-hidden group ${delayClasses[index % delayClasses.length]}`}
+                    className={`flex flex-col h-full glass border-slate-100 hover:border-academic-gold-300 hover:shadow-2xl hover:shadow-academic-blue-900/10 transition-all duration-500 rounded-3xl p-8 relative overflow-hidden group ${delayClasses[index % delayClasses.length]}`}
                 >
                     {/* Decorative corner */}
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-academic-gold-500/10 to-transparent rounded-bl-3xl"></div>
@@ -22,7 +22,7 @@ export default function ServicesGrid({ showAll = false }) {
                     <div className={`text-5xl mb-4 scale-in ${delayClasses[(index + 2) % delayClasses.length]}`}>
                         {service.icon}
                     </div>
-                    <h3 className="text-xl font-serif font-semibold text-academic-blue-900 mb-2 relative z-10">
+                    <h3 className="text-2xl font-serif font-bold text-academic-blue-900 mb-3 relative z-10 group-hover:text-academic-gold-600 transition-colors">
                         {service.title}
                     </h3>
                     <div className="inline-block mb-3">
@@ -30,7 +30,7 @@ export default function ServicesGrid({ showAll = false }) {
                             {service.category}
                         </span>
                     </div>
-                    <p className="text-gray-700 mb-4 flex-grow leading-relaxed">
+                    <p className="text-slate-600 mb-6 flex-grow leading-relaxed font-light">
                         {service.description}
                     </p>
                     <div className="pt-4 border-t border-academic-blue-200">

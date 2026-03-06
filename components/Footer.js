@@ -15,97 +15,86 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="bg-academic-blue-950 text-white">
-            <div className="container-custom py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* About Section */}
-                    <div className="lg:col-span-2">
-                        <h3 className="text-xl font-serif font-bold text-white mb-4">
-                            Dr. Sumaya Advisory
-                        </h3>
-                        <p className="text-gray-300 mb-4 leading-relaxed">
-                            Academic Leadership & Institutional Excellence Consultancy
-                        </p>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            37+ years of experience in higher education leadership, research excellence,
-                            and community development. Serving universities, colleges, and institutions
-                            across India and internationally.
-                        </p>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
-                            {quickLinks.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-gray-300 hover:text-academic-gold-500 transition-colors text-sm"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Contact Information */}
-                    <div>
-                        <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
-                        <ul className="space-y-3 text-sm">
-                            <li className="flex items-start">
-                                <span className="text-academic-gold-500 mr-2">📞</span>
-                                <div>
-                                    <a
-                                        href={`tel:${profile.contact.phone}`}
-                                        className="text-gray-300 hover:text-academic-gold-500 transition-colors block"
-                                    >
-                                        {profile.contact.phone}
+        <footer className="bg-academic-blue-950 text-white relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-academic-gold-500 via-academic-blue-900 to-academic-gold-500"></div>
+            <div className="container-custom pt-24 pb-12 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+                    <div className="lg:col-span-12">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-12 border-b border-white/5">
+                            <div className="max-w-xl">
+                                <h3 className="text-4xl font-serif font-bold text-academic-gold-400 mb-6">
+                                    The North Star
+                                </h3>
+                                <p className="text-xl text-white/60 font-light leading-relaxed">
+                                    Pioneering excellence in higher education and societal transformation through strategic advisory and academic leadership.
+                                </p>
+                            </div>
+                            <div className="flex gap-4">
+                                {['LinkedIn', 'ResearchGate', 'Scholar'].map((social) => (
+                                    <a key={social} href="#" className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 transition-all">
+                                        {social}
                                     </a>
-                                    <a
-                                        href={`tel:${profile.contact.landline}`}
-                                        className="text-gray-300 hover:text-academic-gold-500 transition-colors block"
-                                    >
-                                        {profile.contact.landline}
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-academic-gold-500 mr-2">✉️</span>
-                                <a
-                                    href={`mailto:${profile.contact.email}`}
-                                    className="text-gray-300 hover:text-academic-gold-500 transition-colors"
-                                >
-                                    {profile.contact.email}
-                                </a>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-academic-gold-500 mr-2">📍</span>
-                                <div className="text-gray-300">
-                                    <p>{profile.contact.address.line1}</p>
-                                    <p>{profile.contact.address.line2}</p>
-                                    <p>{profile.contact.address.line3}</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-700 mt-8 pt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <p className="text-gray-400 text-sm text-center md:text-left">
-                            © {currentYear} Dr. Sumaya Advisory. All rights reserved.
-                        </p>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
-                            <span>NAAC Peer Team Member</span>
-                            <span>•</span>
-                            <span>UGC Committee Member</span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="lg:col-span-2 space-y-8">
+                        <div>
+                            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-academic-gold-500 mb-8">Navigation</h4>
+                            <div className="grid grid-cols-2 gap-4">
+                                {quickLinks.map((link) => (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        className="text-white/40 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="space-y-8">
+                        <h4 className="text-sm font-black uppercase tracking-[0.3em] text-academic-gold-500 mb-8">Connect</h4>
+                        <div className="space-y-6">
+                            <a href={`mailto:${profile.contact.email}`} className="block group">
+                                <div className="text-[10px] font-bold text-white/20 uppercase mb-1">Electronic Mail</div>
+                                <div className="text-sm font-serif group-hover:text-academic-gold-400 transition-colors">{profile.contact.email}</div>
+                            </a>
+                            <a href={`tel:${profile.contact.phone}`} className="block group">
+                                <div className="text-[10px] font-bold text-white/20 uppercase mb-1">Executive Line</div>
+                                <div className="text-sm font-serif group-hover:text-academic-gold-400 transition-colors">{profile.contact.phone}</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="space-y-8">
+                        <h4 className="text-sm font-black uppercase tracking-[0.3em] text-academic-gold-500 mb-8">HQ</h4>
+                        <div className="text-white/40 text-sm font-medium leading-loose uppercase tracking-tighter">
+                            Educational District,<br />
+                            Ramanathapuram,<br />
+                            Tamil Nadu, India.
+                        </div>
+                    </div>
+                </div>
+
+                <div className="border-t border-white/5 mt-24 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em]">
+                        © {currentYear} The North Star Global Advisory
+                    </p>
+                    <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.4em] text-white/20">
+                        <span>Excellence</span>
+                        <span>Integrity</span>
+                        <span>Innovation</span>
+                    </div>
+                </div>
             </div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-academic-gold-500/5 blur-[120px] rounded-full translate-x-1/2 translate-y-1/2"></div>
         </footer>
     )
 }
+

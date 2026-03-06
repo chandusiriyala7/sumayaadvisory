@@ -11,192 +11,115 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <>
-            {/* Header */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-academic-blue-50/50 to-white">
+        <><section className="relative pt-40 pb-24 overflow-hidden bg-white">
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-6 origin-top-right"></div>
+            <div className="container-custom relative z-10">
+                <SectionTitle
+                    title="A Legacy of Excellence"
+                    subtitle="Driven by a passion for academic leadership and transformative social impact."
+                />
+            </div>
+        </section><section className="pb-24 bg-white relative">
                 <div className="container-custom">
-                    <SectionTitle
-                        title="About Dr. Sumaya"
-                        subtitle="A Visionary Leader in Academic Excellence and Social Impact"
-                    />
-                </div>
-            </section>
-
-            {/* Profile Summary */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                        <div className="lg:col-span-1">
-                            <div className="sticky top-24">
-                                <div className="relative w-full aspect-square max-w-sm mx-auto mb-6">
-                                    <Image
-                                        src="/images/sumaya-3.png"
-                                        alt="Dr. Sumaya"
-                                        width={400}
-                                        height={400}
-                                        className="rounded-xl shadow-lg object-cover"
-                                    />
-                                </div>
-                                <div className="text-center">
-                                    <h3 className="text-2xl font-serif font-bold text-academic-blue-950 mb-2">
-                                        {profile.name}, {profile.title}
-                                    </h3>
-                                    <p className="text-academic-blue-700 font-medium mb-1">
-                                        {profile.position}
-                                    </p>
-                                    <p className="text-gray-600 text-sm">
-                                        {profile.institution}
-                                    </p>
-                                    <p className="text-gray-500 text-sm">
-                                        {profile.institutionDetails}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="lg:col-span-2 space-y-8">
-                            <div>
-                                <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-4">
-                                    Professional Summary
-                                </h3>
-                                <p className="text-gray-700 leading-relaxed">
-                                    {profile.summary}
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-4">
-                                    Academic Qualifications
-                                </h3>
-                                <ul className="space-y-3">
-                                    {profile.qualifications.map((qual, index) => (
-                                        <li key={index} className="flex items-start">
-                                            <span className="text-academic-gold-500 mr-3 mt-1">🎓</span>
-                                            <span className="text-gray-700">{qual}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 className="text-2xl font-serif font-semibold text-academic-blue-950 mb-4">
-                                    Areas of Expertise
-                                </h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    {profile.expertise.map((area, index) => (
-                                        <div key={index} className="flex items-center p-3 bg-academic-blue-50 rounded-lg">
-                                            <span className="text-academic-blue-700 mr-2">✓</span>
-                                            <span className="text-gray-800 text-sm font-medium">{area}</span>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                        {/* Profile Gallery/Card */}
+                        <div className="lg:col-span-5 sticky top-32">
+                            <div className="relative group">
+                                <div className="absolute inset-0 bg-academic-gold-500 rounded-[3rem] rotate-3 scale-[1.02] opacity-20 blur-2xl group-hover:rotate-6 transition-transform duration-1000"></div>
+                                <div className="relative bg-white p-4 rounded-[3rem] shadow-2xl border border-slate-100">
+                                    <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden">
+                                        <Image
+                                            src="/images/sumaya-3.png"
+                                            alt="Dr. Sumaya"
+                                            fill
+                                            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                                            priority
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-academic-blue-900/60 via-transparent to-transparent"></div>
+                                        <div className="absolute bottom-8 left-8 right-8 text-white">
+                                            <p className="text-academic-gold-400 font-bold tracking-widest text-xs uppercase mb-2">Principal & Consultant</p>
+                                            <h3 className="text-3xl font-serif font-bold">{profile.name}</h3>
                                         </div>
-                                    ))}
+                                    </div>
+                                </div>
+
+                                {/* Floating Credentials */}
+                                <div className="absolute -bottom-6 -right-6 glass-gold p-6 rounded-2xl shadow-xl border border-white scale-in delay-300">
+                                    <div className="text-center">
+                                        <div className="text-3xl font-bold text-academic-blue-900 leading-none mb-1">37+</div>
+                                        <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-tight">Years in<br />Education</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Story Content */}
+                        <div className="lg:col-span-7 space-y-16">
+                            <div className="slide-in-right">
+                                <h3 className="text-3xl font-serif font-bold text-academic-blue-900 mb-6 flex items-center">
+                                    <span className="w-12 h-[1px] bg-academic-gold-500 mr-4"></span>
+                                    Professional Journey
+                                </h3>
+                                <div className="space-y-6 text-xl text-slate-600 font-light leading-relaxed">
+                                    <p className="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-academic-gold-500 first-letter:mr-3 first-letter:float-left">
+                                        {profile.summary}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-academic-gold-200 transition-colors group">
+                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:bg-academic-gold-500 group-hover:text-white transition-colors">
+                                        <span className="text-lg">🎓</span>
+                                    </div>
+                                    <h4 className="text-xl font-serif font-bold text-academic-blue-900 mb-4">Qualifications</h4>
+                                    <ul className="space-y-4">
+                                        {profile.qualifications.map((qual, i) => (
+                                            <li key={i} className="text-sm text-slate-600 font-medium leading-snug flex items-start gap-2">
+                                                <span className="w-1.5 h-1.5 bg-academic-gold-500 rounded-full mt-1.5 shrink-0"></span>
+                                                {qual}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="p-8 bg-academic-blue-900 rounded-3xl border border-white/10 hover:border-academic-gold-500 transition-all text-white relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                                    <h4 className="text-xl font-serif font-bold text-white mb-6 relative z-10">Core Expertise</h4>
+                                    <div className="space-y-3 relative z-10">
+                                        {profile.expertise.map((area, i) => (
+                                            <div key={i} className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/10 group-hover:bg-white/10 transition-colors">
+                                                <span className="text-academic-gold-400 text-sm">★</span>
+                                                <span className="text-sm font-medium opacity-90">{area}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            {/* Leadership Experience */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/30 to-white">
-                <div className="container-custom">
+            </section><section className="py-24 bg-slate-50 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-[0.03]"></div>
+                <div className="container-custom relative z-10 text-center">
                     <SectionTitle
-                        title="Leadership & Administrative Experience"
-                        subtitle="Transforming institutions and building sustainable excellence"
+                        title="Global Presence"
+                        subtitle="Representing Indian academic excellence on the international stage through strategic collaborations."
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <Card>
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-3">
-                                Institutional Transformation
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                Since 1994, transformed TBAK College from a fledgling institution into a thriving
-                                autonomous college serving 2,000+ women students annually. Achieved autonomous status
-                                in 2005 and NAAC &apos;A&apos; Grade accreditation (CGPA 3.16/4.0) in 2019.
-                            </p>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                                <li>• First Muslim minority women&apos;s institution to achieve autonomous status</li>
-                                <li>• Established 4 research centres across disciplines</li>
-                                <li>• 50% graduate placement rate in reputed companies</li>
-                            </ul>
-                        </Card>
-
-                        <Card>
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-3">
-                                Resource Mobilization
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                Secured ₹5 Crore+ in competitive grants including the prestigious DBT Star College
-                                Scheme (₹1 Crore, 2023) – the only college in Madurai region with this recognition.
-                            </p>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                                <li>• 4 UGC-sponsored major research projects</li>
-                                <li>• DBT, DST, and state agency funding</li>
-                                <li>• Infrastructure and community program grants</li>
-                            </ul>
-                        </Card>
-
-                        <Card>
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-3">
-                                Academic Innovation
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                Pioneered curriculum reforms, established new departments, and introduced
-                                industry-relevant programs aligned with UGC and TANSCHE guidelines.
-                            </p>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                                <li>• Innovative PG program in ERP Systems</li>
-                                <li>• Curriculum design for TNPSC examinations</li>
-                                <li>• Career-oriented add-on programs</li>
-                            </ul>
-                        </Card>
-
-                        <Card>
-                            <h4 className="text-xl font-serif font-semibold text-academic-blue-900 mb-3">
-                                Professional Service
-                            </h4>
-                            <p className="text-gray-700 mb-4">
-                                NAAC Peer Team Member since 2004, UGC Committee Member, and advisor to multiple
-                                government bodies and academic councils.
-                            </p>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                                <li>• Convener, PG Home Science Board (TANSCHE)</li>
-                                <li>• Tamil Nadu Food Safety Advisory Committee</li>
-                                <li>• Regional Coordinator, MGNCRE (MoE, Govt. of India)</li>
-                            </ul>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* International Collaborations */}
-            <section className="section-padding bg-white">
-                <div className="container-custom">
-                    <SectionTitle
-                        title="International Collaborations"
-                        subtitle="Representing India globally and forging academic partnerships"
-                    />
-
-                    <div className="flex flex-wrap justify-center gap-4">
+                    <div className="flex flex-wrap justify-center gap-6 mt-12">
                         {profile.internationalCollaborations.map((country, index) => (
                             <div
                                 key={index}
-                                className="px-6 py-3 bg-gradient-to-r from-academic-blue-50 to-academic-gold-50/30 border border-academic-blue-200 rounded-full"
+                                className="px-8 py-4 bg-white/50 backdrop-blur-md rounded-2xl border border-slate-200 hover:border-academic-gold-400 hover:shadow-xl hover:shadow-academic-blue-900/5 transition-all duration-500 group"
                             >
-                                <span className="text-academic-blue-800 font-medium">{country}</span>
+                                <span className="text-slate-700 font-bold group-hover:text-academic-blue-900 transition-colors">{country}</span>
                             </div>
                         ))}
                     </div>
-
-                    <p className="text-center text-gray-600 mt-8 max-w-3xl mx-auto">
-                        Delivered invited talks, presented research, and forged academic collaborations
-                        across continents, representing India&apos;s excellence in education and research.
-                    </p>
                 </div>
-            </section>
-
-            {/* Contact CTA */}
-            <ContactCTA />
+            </section><ContactCTA />
         </>
     )
 }
+

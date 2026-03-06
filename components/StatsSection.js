@@ -6,12 +6,12 @@ export default function StatsSection() {
             {stats.map((stat, index) => (
                 <div
                     key={stat.id}
-                    className={`text-center p-6 glass-dark rounded-xl border-2 border-academic-blue-100 hover:border-academic-gold-500 transition-all duration-300 hover-lift scale-in delay-${index}00`}
+                    className={`text-center p-8 glass border-slate-100 hover:border-academic-gold-300 transition-all duration-500 rounded-3xl group ${index % 2 === 0 ? 'bg-gradient-to-br from-white to-academic-blue-50/30' : 'bg-white'}`}
                 >
                     <div className={`text-4xl mb-3 scale-in delay-${index + 2}00`}>
                         {stat.icon}
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-academic-blue-900 mb-2 highlight-text">
+                    <div className="text-4xl md:text-5xl font-serif font-bold text-academic-blue-900 mb-2 group-hover:text-academic-gold-600 transition-colors">
                         {stat.value}
                     </div>
                     <div className="text-sm md:text-base font-semibold text-academic-blue-700 mb-2">
