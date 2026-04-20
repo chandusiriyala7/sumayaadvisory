@@ -3,10 +3,28 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, useTransform, animate } from 'framer-motion'
 import { profile } from '@/data/profile'
+import GradientBlob from './ui/GradientBlob'
+
+function AnimatedCounter({ value, duration = 2 }) {
+    const [displayValue, setDisplayValue] = useState(0)
+
+    useEffect(() => {
+        const controls = animate(0, parseInt(value), {
+            duration,
+            onUpdate: (v) => setDisplayValue(Math.floor(v)),
+        })
+        return controls.stop
+    }, [value, duration])
+
+    return <span>{displayValue}+</span>
+}
 
 export default function HeroSection() {
     const [currentImage, setCurrentImage] = useState(0)
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+    
     const images = [
         '/images/image.png',
         '/images/image copy.png',
@@ -21,140 +39,284 @@ export default function HeroSection() {
         return () => clearInterval(interval)
     }, [images.length])
 
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        setMousePosition({
+            x: e.clientX - rect.left - rect.width / 2,
+            y: e.clientY - rect.top - rect.height / 2,
+        })
+    }
+
     return (
-        <section className="relative bg-white pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
+        <section className="relative bg-white dark:bg-academic-blue-950 pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center transition-colors duration-300">
+            {/* Animated Background Blobs */}
+            <GradientBlob className="top-0 right-0 w-96 h-96 bg-academic-gold-500/20 dark:bg-academic-gold-400/10" delay={0} />
+            <GradientBlob className="bottom-0 left-0 w-96 h-96 bg-academic-blue-500/20 dark:bg-academic-blue-400/10" delay={2} />
+            <GradientBlob className="top-1/2 left-1/2 w-96 h-96 bg-academic-gold-400/10 dark:bg-academic-gold-500/5" delay={4} />
+
             {/* Background elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-academic-blue-50/30 -skew-x-12 transform origin-top-right"></div>
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-academic-gold-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-academic-blue-50/50 to-transparent"></div>
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-academic-blue-50/30 dark:bg-academic-blue-900/20 -skew-x-12 transform origin-top-right transition-colors duration-300"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-academic-blue-50/50 dark:from-academic-blue-900/30 to-transparent"></div>
 
             <div className="container-custom relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Left Content */}
-                    <div className="space-y-8 slide-in-left">
-                        <div className="inline-flex items-center space-x-2 px-4 py-2 glass-gold rounded-full shimmer">
-                            <span className="w-2 h-2 bg-academic-gold-500 rounded-full animate-pulse"></span>
-                            <span className="text-academic-gold-700 font-semibold text-sm uppercase tracking-widest">
+                    <motion.div 
+                        className="space-y-8"
+                        initial={{ opacity: 0, x: -40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+                    >
+                        <motion.div 
+                            className="inline-flex items-center space-x-2 px-4 py-2 glass-gold rounded-full"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.1, duration: 0.3 }}
+                        >
+                            <motion.span 
+                                className="w-2 h-2 bg-academic-gold-500 dark:bg-academic-gold-400 rounded-full"
+                                animate={{ scale: [1, 1.2, 1] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                            />
+                            <span className="text-academic-gold-700 dark:text-academic-gold-400 font-semibold text-sm uppercase tracking-widest">
                                 {profile.tagline}
                             </span>
-                        </div>
+                        </motion.div>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-academic-blue-900 leading-[1.2] md:leading-[1.1]">
-                            The <span className="text-academic-gold-500 underline decoration-academic-gold-200 underline-offset-8">North Star</span> for Institutional Excellence
-                        </h1>
+                        <motion.h1 
+                            className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-academic-blue-900 dark:text-academic-blue-50 leading-[1.2] md:leading-[1.1]"
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.15, duration: 0.5 }}
+                        >
+                            The <span className="gradient-text">North Star</span> for Institutional Excellence
+                        </motion.h1>
 
-                        <p className="text-lg md:text-2xl text-slate-600 max-w-xl font-light leading-relaxed">
+                        <motion.p 
+                            className="text-lg md:text-2xl text-slate-600 dark:text-slate-300 max-w-xl font-light leading-relaxed"
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                        >
                             {profile.heroSubtitle}. Empowering academic leadership through decades of proven expertise and visionary strategy.
-                        </p>
+                        </motion.p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Link href="/contact" className="btn-primary hover-lift text-base md:text-lg font-bold">
-                                Request Consultation
-                            </Link>
-                            <Link href="/services" className="btn-secondary hover-lift text-base md:text-lg font-bold">
-                                Our Services
-                            </Link>
-                        </div>
+                        <motion.div 
+                            className="flex flex-col sm:flex-row gap-4 pt-4"
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.25, duration: 0.5 }}
+                        >
+                            <motion.div
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Link href="/contact" className="btn-primary text-base md:text-lg font-bold inline-block">
+                                    Request Consultation
+                                </Link>
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block">
+                                    Our Services
+                                </Link>
+                            </motion.div>
+                        </motion.div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-10 border-t border-slate-200">
-                            <div>
-                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">37+</div>
-                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Years Experience</div>
-                            </div>
-                            <div>
-                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">27+</div>
-                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Awards Won</div>
-                            </div>
-                            <div className="col-span-2 md:col-span-1 border-t md:border-t-0 pt-6 md:pt-0">
-                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900">5Cr+</div>
-                                <div className="text-[10px] md:text-sm text-slate-500 font-bold uppercase tracking-wider">Research Grants</div>
-                            </div>
-                        </div>
-                    </div>
+                        <motion.div 
+                            className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-10 border-t border-slate-200 dark:border-academic-blue-800"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                        >
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: 'spring', stiffness: 300 }}
+                            >
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900 dark:text-academic-gold-400">
+                                    <AnimatedCounter value="37" />
+                                </div>
+                                <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Years Experience</div>
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: 'spring', stiffness: 300 }}
+                            >
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900 dark:text-academic-gold-400">
+                                    <AnimatedCounter value="27" />
+                                </div>
+                                <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Awards Won</div>
+                            </motion.div>
+                            <motion.div 
+                                className="col-span-2 md:col-span-1 border-t md:border-t-0 pt-6 md:pt-0"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: 'spring', stiffness: 300 }}
+                            >
+                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900 dark:text-academic-gold-400">5Cr+</div>
+                                <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Research Grants</div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Content - Premium Image Stack */}
-                    <div className="relative h-[600px] slide-in-right hidden lg:block">
+                    <motion.div 
+                        className="relative h-[600px] hidden lg:block"
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+                        onMouseMove={handleMouseMove}
+                    >
                         <div className="absolute inset-0 flex items-center justify-center">
                             {/* Main Active Image */}
-                            <div className="relative w-[450px] h-[550px] z-20 transition-all duration-1000 ease-in-out transform hover:scale-[1.02]">
-                                <div className="absolute inset-0 bg-academic-blue-900 rounded-[2rem] transform rotate-3 translate-x-4 translate-y-4"></div>
-                                <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl">
-                                    <Image
-                                        src={images[currentImage]}
-                                        alt="The North Star Logo/Context"
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-academic-blue-900/40 to-transparent"></div>
+                            <motion.div 
+                                className="relative w-[450px] h-[550px] z-20"
+                                style={{
+                                    rotateX: useTransform(() => mousePosition.y / 30),
+                                    rotateY: useTransform(() => mousePosition.x / 30),
+                                }}
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <motion.div 
+                                    className="absolute inset-0 bg-academic-blue-900 dark:bg-academic-gold-500/20 rounded-[2rem] transform rotate-3 translate-x-4 translate-y-4"
+                                    animate={{ rotate: [3, 5, 3] }}
+                                    transition={{ duration: 4, repeat: Infinity }}
+                                />
+                                <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white dark:border-academic-blue-800 shadow-2xl">
+                                    <motion.div
+                                        key={currentImage}
+                                        initial={{ opacity: 0, scale: 1.1 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 1 }}
+                                    >
+                                        <Image
+                                            src={images[currentImage]}
+                                            alt="The North Star"
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                            sizes="(max-width: 1024px) 100vw, 450px"
+                                            quality={90}
+                                        />
+                                    </motion.div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-academic-blue-900/40 dark:from-academic-blue-950/60 to-transparent"></div>
                                 </div>
 
                                 {/* Floating Info Card */}
-                                <div className="absolute -bottom-8 -left-8 glass-dark p-6 rounded-2xl shadow-xl border border-white/20 scale-in z-30">
+                                <motion.div 
+                                    className="absolute -bottom-8 -left-8 glass-dark p-6 rounded-2xl shadow-xl border border-white/20 dark:border-academic-gold-500/20 z-30"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1, duration: 0.6 }}
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                >
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-academic-gold-500 rounded-full flex items-center justify-center text-white font-bold">★</div>
+                                        <motion.div 
+                                            className="w-12 h-12 bg-gradient-to-br from-academic-gold-400 to-academic-gold-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                                        >
+                                            ★
+                                        </motion.div>
                                         <div>
-                                            <div className="text-sm font-bold text-academic-blue-950 uppercase tracking-tighter">Premium Advisory</div>
-                                            <div className="text-xs text-slate-600 font-medium">Excellence in Leadership</div>
+                                            <div className="text-sm font-bold text-academic-blue-950 dark:text-academic-blue-50 uppercase tracking-tighter">Premium Advisory</div>
+                                            <div className="text-xs text-slate-600 dark:text-slate-400 font-medium">Excellence in Leadership</div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* Secondary Image Stack */}
-                            <div className="absolute top-10 right-0 w-48 h-64 z-10 opacity-40 blur-[1px] transition-all duration-1000">
-                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                            <motion.div 
+                                className="absolute top-10 right-0 w-48 h-64 z-10 opacity-40 blur-[1px]"
+                                animate={{ y: [0, -20, 0] }}
+                                transition={{ duration: 6, repeat: Infinity }}
+                            >
+                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
                                     <Image
                                         src={images[(currentImage + 1) % images.length]}
                                         alt="Context"
                                         fill
                                         className="object-cover"
+                                        loading="lazy"
+                                        sizes="192px"
+                                        quality={75}
                                     />
                                 </div>
-                            </div>
-                            <div className="absolute bottom-10 left-0 w-48 h-64 z-10 opacity-40 blur-[1px] transition-all duration-1000">
-                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                            </motion.div>
+                            <motion.div 
+                                className="absolute bottom-10 left-0 w-48 h-64 z-10 opacity-40 blur-[1px]"
+                                animate={{ y: [0, 20, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+                            >
+                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
                                     <Image
                                         src={images[(currentImage + 2) % images.length]}
                                         alt="Context"
                                         fill
                                         className="object-cover"
+                                        loading="lazy"
+                                        sizes="192px"
+                                        quality={75}
                                     />
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Pagination Dots */}
                         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-3">
                             {images.map((_, i) => (
-                                <button
+                                <motion.button
                                     key={i}
                                     onClick={() => setCurrentImage(i)}
-                                    className={`h-1.5 rounded-full transition-all duration-500 ${currentImage === i ? 'bg-academic-gold-500 w-12' : 'bg-slate-300 w-4'}`}
+                                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                                        currentImage === i 
+                                            ? 'bg-academic-gold-500 dark:bg-academic-gold-400 w-12' 
+                                            : 'bg-slate-300 dark:bg-slate-600 w-4'
+                                    }`}
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.9 }}
                                 />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Mobile Only Slider */}
-                    <div className="lg:hidden relative h-[400px] w-full">
-                        <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white shadow-xl">
+                    <motion.div 
+                        className="lg:hidden relative h-[400px] w-full"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                    >
+                        <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
                             <Image
                                 src={images[currentImage]}
                                 alt="Context"
                                 fill
                                 className="object-cover"
+                                priority
+                                sizes="100vw"
+                                quality={85}
                             />
                         </div>
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                             {images.map((_, i) => (
-                                <div key={i} className={`w-2 h-2 rounded-full ${currentImage === i ? 'bg-academic-gold-500' : 'bg-white/50'}`}></div>
+                                <div 
+                                    key={i} 
+                                    className={`w-2 h-2 rounded-full transition-all ${
+                                        currentImage === i 
+                                            ? 'bg-academic-gold-500 dark:bg-academic-gold-400 w-8' 
+                                            : 'bg-white/50 dark:bg-white/30'
+                                    }`}
+                                />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
     )
 }
-

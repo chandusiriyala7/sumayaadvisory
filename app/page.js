@@ -1,18 +1,27 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import HeroSection from '@/components/HeroSection'
 import ServicesGrid from '@/components/ServicesGrid'
 import StatsSection from '@/components/StatsSection'
 import AwardsHighlight from '@/components/AwardsHighlight'
 import ContactCTA from '@/components/ContactCTA'
 import SectionTitle from '@/components/SectionTitle'
+import { pageTransition } from '@/lib/animations'
 
 export default function Home() {
     return (
-        <>
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageTransition}
+        >
             {/* Hero Section */}
             <HeroSection />
 
             {/* Services Section */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-white dark:bg-academic-blue-950 transition-colors duration-300">
                 <div className="container-custom">
                     <SectionTitle
                         title="Consultancy Services"
@@ -23,7 +32,7 @@ export default function Home() {
             </section>
 
             {/* Stats Section */}
-            <section className="section-padding bg-gradient-to-br from-academic-blue-50/50 to-white">
+            <section className="section-padding bg-gradient-to-br from-academic-blue-50/50 to-white dark:from-academic-blue-900/30 dark:to-academic-blue-950 transition-colors duration-300">
                 <div className="container-custom">
                     <SectionTitle
                         title="Impact & Achievements"
@@ -34,7 +43,7 @@ export default function Home() {
             </section>
 
             {/* Awards Section */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-white dark:bg-academic-blue-950 transition-colors duration-300">
                 <div className="container-custom">
                     <SectionTitle
                         title="Recognition & Awards"
@@ -46,6 +55,6 @@ export default function Home() {
 
             {/* Contact CTA */}
             <ContactCTA />
-        </>
+        </motion.div>
     )
 }

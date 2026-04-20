@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { ThemeProvider } from './providers/ThemeProvider'
 
 export const metadata = {
     title: 'The North Star | Academic Leadership & Institutional Excellence',
@@ -16,13 +17,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body>
-                <Navbar />
-                <main className="min-h-screen">
-                    {children}
-                </main>
-                <Footer />
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+            </head>
+            <body className="transition-colors duration-300">
+                <ThemeProvider>
+                    <Navbar />
+                    <main className="min-h-screen">
+                        {children}
+                    </main>
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     )
