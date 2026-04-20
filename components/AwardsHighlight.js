@@ -39,7 +39,7 @@ export default function AwardsHighlight() {
                 </Card>
             ))}
 
-            <Card className="flex items-center justify-center glass border-2 border-dashed border-academic-gold-400 hover:border-solid hover:bg-academic-gold-50/30 transition-all duration-500 rounded-3xl p-8">
+            <Card className="flex items-center justify-center glass border-2 border-dashed border-academic-gold-400 hover:border-solid hover:bg-academic-gold-50/30 transition-all duration-500 rounded-3xl p-8 md:col-start-1 lg:col-start-2">
                 <div className="text-center">
                     <div className="text-5xl mb-3 animate-pulse">✨</div>
                     <p className="text-academic-blue-900 font-bold text-xl mb-2 highlight-text">27+ Awards</p>

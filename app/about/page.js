@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import SectionTitle from '@/components/SectionTitle'
-import Card from '@/components/Card'
 import ContactCTA from '@/components/ContactCTA'
 import { profile } from '@/data/profile'
 
@@ -122,4 +121,3 @@ export default function AboutPage() {
         </>
     )
 }
-

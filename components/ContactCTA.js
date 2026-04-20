@@ -23,12 +23,12 @@ export default function ContactCTA() {
                         secure accreditation, or build sustainable community impact programs.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-400">
-                        <Link href="/contact" className="btn-accent hover-lift">
+                        <Link href="/contact" className="btn-accent hover-lift hover:bg-none hover:bg-white/10 hover:border-white/25 hover:text-white hover:backdrop-blur-md">
                             Request Consultation
                         </Link>
                         <Link
                             href="/services"
-                            className="px-8 py-3 glass border-2 border-white/30 text-white rounded-md font-semibold hover:bg-white hover:text-academic-blue-900 transition-all hover-lift"
+                            className="inline-flex items-center justify-center px-10 py-4 bg-white/5 border border-white/25 text-white rounded-full font-bold shadow-lg shadow-black/10 backdrop-blur-md hover:bg-academic-gold-500 hover:border-academic-gold-400 hover:text-academic-blue-950 hover:shadow-academic-gold-500/20 transition-all hover-lift"
                         >
                             Explore Services
                         </Link>

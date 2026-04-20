@@ -2,17 +2,27 @@
 
 import { useState } from 'react'
 import SectionTitle from '@/components/SectionTitle'
-import Card from '@/components/Card'
 import { profile } from '@/data/profile'
-import { services } from '@/data/services'
 
 export default function ContactPage() {
     const [formState, setFormState] = useState('idle')
+    const phoneHref = profile.contact.phone.replace(/[^\d+]/g, '')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setFormState('submitting')
-        setTimeout(() => setFormState('success'), 1500)
+        const form = e.currentTarget
+        const formData = new FormData(form)
+        const subject = formData.get('subject')
+        const body = [
+            `Name: ${formData.get('name')}`,
+            `Email: ${formData.get('email')}`,
+            `Inquiry: ${subject}`,
+            '',
+            formData.get('message'),
+        ].join('\n')
+
+        window.location.href = `mailto:${profile.contact.email}?subject=${encodeURIComponent(`The North Star inquiry: ${subject}`)}&body=${encodeURIComponent(body)}`
+        setFormState('opened')
     }
 
     return (
@@ -31,19 +41,19 @@ export default function ContactPage() {
                             <div>
                                 <h3 className="text-xs font-black text-academic-gold-600 uppercase tracking-[0.4em] mb-8">Executive Channels</h3>
                                 <div className="space-y-6 md:space-y-8">
-                                    <a href="mailto:contact@thenorthstar.com" className="group block focus:outline-none">
+                                    <a href={`mailto:${profile.contact.email}`} className="group block focus:outline-none">
                                         <div className="p-6 md:p-8 bg-slate-50 rounded-[2rem] border border-slate-100 group-hover:bg-academic-blue-950 group-hover:border-academic-blue-900 transition-all duration-500">
                                             <div className="text-academic-gold-500 text-[10px] md:text-sm font-bold mb-1 md:mb-2 uppercase tracking-widest">Inquiries</div>
                                             <div className="text-lg md:text-xl font-serif font-bold text-academic-blue-900 group-hover:text-white transition-colors">
-                                                contact@thenorthstar.com
+                                                {profile.contact.email}
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="tel:+914567220235" className="group block focus:outline-none">
+                                    <a href={`tel:${phoneHref}`} className="group block focus:outline-none">
                                         <div className="p-6 md:p-8 bg-white rounded-[2rem] border border-slate-200 group-hover:bg-academic-gold-500 transition-all duration-500">
                                             <div className="text-academic-blue-900/40 text-[10px] md:text-sm font-bold mb-1 md:mb-2 uppercase tracking-widest group-hover:text-black/50">Tele-Advisory</div>
                                             <div className="text-lg md:text-xl font-serif font-bold text-academic-blue-900 group-hover:text-academic-blue-950 transition-colors">
-                                                +91 4567 220 235
+                                                {profile.contact.phone}
                                             </div>
                                         </div>
                                     </a>
@@ -57,9 +67,9 @@ export default function ContactPage() {
                                 <h4 className="text-sm font-bold text-academic-gold-400 uppercase tracking-widest mb-6">Strategic HQ</h4>
                                 <div className="text-xl font-serif font-light leading-relaxed mb-8 opacity-80">
                                     The North Star Advisory,<br />
-                                    Educational District,<br />
-                                    Ramanathapuram - 623 504,<br />
-                                    Tamil Nadu, India.
+                                    {profile.contact.address.line1},<br />
+                                    {profile.contact.address.line2},<br />
+                                    {profile.contact.address.line3}
                                 </div>
                                 <div className="pt-8 border-t border-white/10 flex items-center justify-between">
                                     <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Operating hours</span>
@@ -79,6 +89,7 @@ export default function ContactPage() {
                                             <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Full Name</label>
                                             <input
                                                 type="text"
+                                                name="name"
                                                 required
                                                 className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-academic-gold-500 transition-all placeholder:text-slate-300 font-medium"
                                                 placeholder="Dr. John Smith"
@@ -88,6 +99,7 @@ export default function ContactPage() {
                                             <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Email Address</label>
                                             <input
                                                 type="email"
+                                                name="email"
                                                 required
                                                 className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-academic-gold-500 transition-all placeholder:text-slate-300 font-medium"
                                                 placeholder="john@research.org"
@@ -96,7 +108,7 @@ export default function ContactPage() {
                                     </div>
                                     <div className="space-y-4">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Subject of Inquiry</label>
-                                        <select className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-academic-gold-500 transition-all font-medium text-slate-600">
+                                        <select name="subject" className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-academic-gold-500 transition-all font-medium text-slate-600">
                                             <option>Academic Collaboration</option>
                                             <option>Strategic Advisory</option>
                                             <option>Social Impact Proposal</option>
@@ -107,6 +119,7 @@ export default function ContactPage() {
                                     <div className="space-y-4">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Detailed Message</label>
                                         <textarea
+                                            name="message"
                                             required
                                             rows="5"
                                             className="w-full bg-slate-50 border-none rounded-3xl px-6 py-4 focus:ring-2 focus:ring-academic-gold-500 transition-all placeholder:text-slate-300 font-medium resize-none"
@@ -116,13 +129,11 @@ export default function ContactPage() {
 
                                     <button
                                         type="submit"
-                                        disabled={formState === 'submitting'}
-                                        className={`w-full py-6 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all duration-500 shadow-lg ${formState === 'success' ? 'bg-green-500 text-white' : 'bg-academic-blue-950 text-white hover:bg-academic-blue-900'
+                                        className={`w-full py-6 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all duration-500 shadow-lg ${formState === 'opened' ? 'bg-academic-gold-500 text-academic-blue-950' : 'bg-academic-blue-950 text-white hover:bg-academic-blue-900'
                                             }`}
                                     >
-                                        {formState === 'idle' && 'Transmit Message'}
-                                        {formState === 'submitting' && 'Connecting...'}
-                                        {formState === 'success' && 'Message Delivered Successfully'}
+                                        {formState === 'idle' && 'Open Email Draft'}
+                                        {formState === 'opened' && 'Email Draft Opened'}
                                     </button>
                                 </form>
                             </div>

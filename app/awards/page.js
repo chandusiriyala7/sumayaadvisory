@@ -1,7 +1,5 @@
-import SectionTitle from '@/components/SectionTitle'
-import Card from '@/components/Card'
 import ContactCTA from '@/components/ContactCTA'
-import { getAllAwards, getAwardsByCategory } from '@/data/awards'
+import { getAllAwards } from '@/data/awards'
 
 export const metadata = {
     title: 'Awards & Recognition | Dr. Sumaya',
@@ -9,28 +7,16 @@ export const metadata = {
 }
 
 export default function AwardsPage() {
-    const categories = [
-        {
-            title: "Academic Excellence",
-            awards: [
-                { title: "Best Teacher Award", year: "2023", org: "Tamil Nadu State Government" },
-                { title: "Distinguished Alumna", year: "2021", org: "Avinashilingam University" },
-                { title: "Young Scientist Award", year: "2015", org: "National Nutrition Society" }
-            ]
-        },
-        {
-            title: "Social Impact",
-            awards: [
-                { title: "Vocational Excellence", year: "2022", org: "Rotary International" },
-                { title: "Community Leadership", year: "2019", org: "District Administration" },
-                { title: "Women Empowerment Icon", year: "2018", org: "NGO Federation" }
-            ]
-        }
-    ]
+    const allAwards = getAllAwards()
+    const featuredAwards = allAwards.filter((award) => award.featured).slice(0, 2)
+    const categories = ['International', 'National', 'State'].map((category) => ({
+        title: `${category} Recognition`,
+        awards: allAwards.filter((award) => award.category === category),
+    })).filter((category) => category.awards.length > 0)
 
     return (
         <><section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-slate-950 text-white">
-            <div className="absolute inset-0 bg-[url('/images/pattern-gold.png')] opacity-5"></div>
+            <div className="absolute inset-0 bg-[url('/images/pattern-gold.svg')] opacity-5"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-academic-blue-900/20 to-transparent"></div>
             <div className="container-custom relative z-10">
                 <div className="max-w-3xl">
@@ -58,40 +44,50 @@ export default function AwardsPage() {
                             <div className="w-24 h-1 bg-academic-gold-500"></div>
                         </div>
                         <div className="lg:col-span-8 space-y-8 md:space-y-12">
-                            {[
-                                { title: "DBT Star Status", val: "2023", desc: "Highest recognition for science education infrastructure in the region.", icon: "⭐" },
-                                { title: "State Best Teacher", val: "2019", desc: "Awarded for exceptional contribution to higher education and student mentorship.", icon: "🏅" }
-                            ].map((feat, idx) => (
-                                <div key={idx} className="group relative p-8 md:p-12 bg-slate-50 rounded-[2.5rem] md:rounded-[3rem] border border-slate-100 hover:bg-academic-blue-950 hover:text-white transition-all duration-700">
+                            {featuredAwards.map((award) => (
+                                <div key={award.id} className="group relative p-8 md:p-12 bg-slate-50 rounded-[2.5rem] md:rounded-[3rem] border border-slate-100 hover:bg-academic-blue-950 hover:text-white transition-all duration-700">
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
                                         <div>
-                                            <div className="text-academic-gold-500 font-bold mb-1 md:mb-2 tracking-widest">{feat.val}</div>
-                                            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 group-hover:text-white transition-colors">{feat.title}</h3>
-                                            <p className="text-slate-500 group-hover:text-white/60 font-light">{feat.desc}</p>
+                                            <div className="text-academic-gold-500 font-bold mb-1 md:mb-2 tracking-widest">{award.year}</div>
+                                            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 group-hover:text-white transition-colors">{award.title}</h3>
+                                            <p className="text-slate-500 group-hover:text-white/60 font-light">{award.description}</p>
+                                            <p className="text-xs font-bold text-academic-gold-500 uppercase tracking-widest mt-6">{award.awardedBy}</p>
                                         </div>
-                                        <div className="text-6xl grayscale group-hover:grayscale-0 transition-all opacity-20 group-hover:opacity-100">{feat.icon}</div>
+                                        <div className="text-6xl grayscale group-hover:grayscale-0 transition-all opacity-20 group-hover:opacity-100">🏆</div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-            </section><section className="py-24 bg-slate-50">
+            </section><section className="py-16 md:py-24 bg-slate-50">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                        {categories.map((cat, idx) => (
-                            <div key={idx} className="space-y-8">
-                                <h3 className="text-2xl font-serif font-bold text-academic-blue-900 inline-block border-b-2 border-academic-gold-500 pb-2">
-                                    {cat.title}
-                                </h3>
-                                <div className="space-y-4">
-                                    {cat.awards.map((award, aIdx) => (
-                                        <div key={aIdx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <h4 className="text-lg font-bold text-academic-blue-950 group-hover:text-academic-gold-600 transition-colors uppercase tracking-tight">{award.title}</h4>
-                                                <span className="text-xs font-black text-slate-300 group-hover:text-academic-gold-400 transition-colors">{award.year}</span>
+                    <div className="space-y-16">
+                        {categories.map((cat) => (
+                            <div key={cat.title} className="space-y-8">
+                                <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-slate-200 pb-5">
+                                    <div>
+                                        <p className="text-[10px] font-black uppercase tracking-[0.35em] text-academic-gold-600 mb-3">
+                                            {cat.awards.length} {cat.awards.length === 1 ? 'honour' : 'honours'}
+                                        </p>
+                                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-academic-blue-900">
+                                            {cat.title}
+                                        </h3>
+                                    </div>
+                                    <div className="hidden sm:block w-24 h-1 bg-academic-gold-500"></div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                                    {cat.awards.map((award) => (
+                                        <div key={award.id} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-academic-gold-300 hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+                                            <div className="flex items-start justify-between gap-6 mb-5">
+                                                <div className="text-3xl opacity-30 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110">🏆</div>
+                                                <span className="shrink-0 text-xs font-black text-slate-300 group-hover:text-academic-gold-500 transition-colors">{award.year}</span>
                                             </div>
-                                            <p className="text-xs font-medium text-slate-400">{award.org}</p>
+                                            <h4 className="text-xl font-serif font-bold text-academic-blue-950 group-hover:text-academic-gold-600 transition-colors uppercase tracking-tight leading-snug mb-3">
+                                                {award.title}
+                                            </h4>
+                                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">{award.awardedBy}</p>
+                                            <p className="text-sm text-slate-500 leading-relaxed flex-grow">{award.description}</p>
                                         </div>
                                     ))}
                                 </div>

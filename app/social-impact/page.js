@@ -1,5 +1,4 @@
 import SectionTitle from '@/components/SectionTitle'
-import Card from '@/components/Card'
 import ContactCTA from '@/components/ContactCTA'
 
 export const metadata = {
@@ -28,7 +27,9 @@ export default function SocialImpactPage() {
                         ].map((stat, idx) => (
                             <div key={idx} className="relative group overflow-hidden rounded-[2.5rem]">
                                 <div className={`p-10 md:p-12 h-full ${stat.bgClass} text-white transition-transform duration-700 group-hover:scale-105`}>
-                                    <div className="text-4xl md:text-5xl mb-4 md:mb-6 opacity-20">{stat.icon}</div>
+                                    <div className="text-4xl md:text-5xl mb-4 md:mb-6 opacity-30 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 group-hover:-translate-y-1">
+                                        {stat.icon}
+                                    </div>
                                     <div className="text-5xl md:text-6xl font-serif font-bold mb-3 md:mb-4">{stat.val}</div>
                                     <h4 className="text-sm md:text-lg font-bold tracking-widest uppercase mb-3 md:mb-4 opacity-70">{stat.title}</h4>
                                     <p className="text-xs md:text-sm opacity-50 font-medium leading-relaxed">{stat.desc}</p>
@@ -106,4 +107,3 @@ export default function SocialImpactPage() {
         </>
     )
 }
-

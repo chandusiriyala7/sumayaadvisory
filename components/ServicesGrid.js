@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Card from './Card'
-import { getFeaturedServices } from '@/data/services'
+import { getFeaturedServices, services as allServices } from '@/data/services'
 
 export default function ServicesGrid({ showAll = false }) {
     const services = showAll
-        ? require('@/data/services').services
+        ? allServices
         : getFeaturedServices()
 
     const delayClasses = ['delay-100', 'delay-200', 'delay-300', 'delay-400', 'delay-500', 'delay-600']

@@ -10,7 +10,7 @@ export default function SectionTitle({ title, subtitle, centered = true, light =
                 {title}
             </h2>
             {subtitle && (
-                <p className={`text-base md:text-xl max-w-3xl mx-auto font-light leading-relaxed ${light ? 'text-white/70' : 'text-slate-50' ? 'text-white/70' : 'text-slate-500'}`}>
+                <p className={`text-base md:text-xl max-w-3xl mx-auto font-light leading-relaxed ${light ? 'text-white/70' : 'text-slate-500'}`}>
                     {subtitle}
                 </p>
             )}
