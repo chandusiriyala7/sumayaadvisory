@@ -90,7 +90,7 @@ export default function HeroSection() {
                         </motion.p>
 
                         <motion.div 
-                            className="flex flex-col sm:flex-row gap-4 pt-4 pb-16"
+                            className="flex flex-col sm:flex-row gap-4 pt-4"
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.25, duration: 0.5 }}
@@ -106,6 +106,7 @@ export default function HeroSection() {
                             <motion.div
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
+                                className="mb-[50px]"
                             >
                                 <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block">
                                     Explore Services
