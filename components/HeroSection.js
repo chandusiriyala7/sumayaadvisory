@@ -90,8 +90,7 @@ export default function HeroSection() {
                         </motion.p>
 
                         <motion.div 
-                            className="flex flex-col sm:flex-row gap-4 pt-4"
-                            style={{ marginBottom: '50px' }}
+                            className="flex flex-col sm:flex-row gap-4 pt-4 pb-16"
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.25, duration: 0.5 }}
@@ -115,8 +114,7 @@ export default function HeroSection() {
                         </motion.div>
 
                         <motion.div 
-                            className="grid grid-cols-2 gap-6 md:gap-8 pt-16 border-t border-slate-200 dark:border-academic-blue-800"
-                            style={{ marginTop: '50px' }}
+                            className="grid grid-cols-2 gap-6 md:gap-8 pt-8 border-t border-slate-200 dark:border-academic-blue-800"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
