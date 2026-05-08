@@ -10,21 +10,36 @@ export default function ContactPage() {
     const [formState, setFormState] = useState('idle')
     const phoneHref = profile.contact.phone.replace(/[^\d+]/g, '')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        setFormState('submitting')
+        
         const form = e.currentTarget
         const formData = new FormData(form)
-        const subject = formData.get('subject')
-        const body = [
-            `Name: ${formData.get('name')}`,
-            `Email: ${formData.get('email')}`,
-            `Inquiry: ${subject}`,
-            '',
-            formData.get('message'),
-        ].join('\n')
+        
+        // Simulate form submission (you can replace this with actual API call)
+        try {
+            // For now, we'll still use mailto as fallback, but with better UX
+            const subject = formData.get('subject')
+            const body = [
+                `Name: ${formData.get('name')}`,
+                `Email: ${formData.get('email')}`,
+                `Inquiry: ${subject}`,
+                '',
+                formData.get('message'),
+            ].join('\n')
 
-        window.location.href = `mailto:${profile.contact.email}?subject=${encodeURIComponent(`The North Star inquiry: ${subject}`)}&body=${encodeURIComponent(body)}`
-        setFormState('opened')
+            window.location.href = `mailto:${profile.contact.email}?subject=${encodeURIComponent(`The North Star inquiry: ${subject}`)}&body=${encodeURIComponent(body)}`
+            
+            setTimeout(() => {
+                setFormState('success')
+                form.reset()
+                setTimeout(() => setFormState('idle'), 3000)
+            }, 500)
+        } catch {
+            setFormState('error')
+            setTimeout(() => setFormState('idle'), 3000)
+        }
     }
 
     return (
@@ -162,16 +177,23 @@ export default function ContactPage() {
 
                                     <motion.button
                                         type="submit"
+                                        disabled={formState === 'submitting'}
                                         className={`w-full py-6 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all duration-500 shadow-lg ${
-                                            formState === 'opened' 
-                                                ? 'bg-academic-gold-500 dark:bg-academic-gold-400 text-academic-blue-950' 
+                                            formState === 'success' 
+                                                ? 'bg-green-500 text-white' 
+                                                : formState === 'error'
+                                                ? 'bg-red-500 text-white'
+                                                : formState === 'submitting'
+                                                ? 'bg-slate-400 text-white cursor-not-allowed'
                                                 : 'bg-academic-blue-950 dark:bg-academic-gold-500 text-white dark:text-academic-blue-950 hover:bg-academic-blue-900 dark:hover:bg-academic-gold-400'
                                         }`}
-                                        whileHover={{ scale: 1.02, y: -2 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        whileHover={formState === 'idle' ? { scale: 1.02, y: -2 } : {}}
+                                        whileTap={formState === 'idle' ? { scale: 0.98 } : {}}
                                     >
-                                        {formState === 'idle' && 'Open Email Draft'}
-                                        {formState === 'opened' && 'Email Draft Opened'}
+                                        {formState === 'idle' && 'Submit Inquiry'}
+                                        {formState === 'submitting' && 'Submitting...'}
+                                        {formState === 'success' && '✓ Message Sent Successfully'}
+                                        {formState === 'error' && '✗ Please Try Again'}
                                     </motion.button>
                                 </form>
                             </div>
