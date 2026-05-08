@@ -600,6 +600,25 @@ h2 {
   z-index: 9999;
 }
 
+/* Hero Section Button Spacing - CRITICAL FIX */
+.hero-buttons-spacing {
+  padding-bottom: 100px !important;
+}
+
+.hero-stats-spacing {
+  padding-top: 100px !important;
+}
+
+@media (max-width: 640px) {
+  .hero-buttons-spacing {
+    padding-bottom: 80px !important;
+  }
+  
+  .hero-stats-spacing {
+    padding-top: 80px !important;
+  }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,

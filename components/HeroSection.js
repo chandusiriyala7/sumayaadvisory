@@ -90,7 +90,7 @@ export default function HeroSection() {
                         </motion.p>
 
                         <motion.div 
-                            className="flex flex-col sm:flex-row gap-4 pt-4"
+                            className="hero-buttons-spacing flex flex-col sm:flex-row gap-4"
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.25, duration: 0.5 }}
@@ -106,16 +106,15 @@ export default function HeroSection() {
                             <motion.div
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="mb-[50px]"
                             >
-                                <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block">
+                                <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block my-[25px]">
                                     Explore Services
                                 </Link>
                             </motion.div>
                         </motion.div>
-
+               
                         <motion.div 
-                            className="grid grid-cols-2 gap-6 md:gap-8 pt-8 border-t border-slate-200 dark:border-academic-blue-800"
+                            className="hero-stats-spacing grid grid-cols-2 gap-6 md:gap-8 border-t border-slate-200 dark:border-academic-blue-800"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
