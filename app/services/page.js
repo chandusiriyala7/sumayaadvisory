@@ -68,7 +68,7 @@ export default function ServicesPage() {
                                             <p className="text-slate-600 dark:text-slate-300 font-medium italic">&quot;{service.outcome}&quot;</p>
                                         </div>
                                         <div className="p-8 bg-academic-blue-900 dark:bg-academic-blue-950 rounded-3xl text-white transform hover:scale-[1.02] transition-all duration-300">
-                                            <h4 className="text-sm font-bold text-academic-gold-400 uppercase tracking-widest mb-3 text-opacity-100">Target Segment</h4>
+                                            <h4 className="text-sm font-bold text-academic-gold-400 uppercase tracking-widest mb-3 text-opacity-100">Who can partner?</h4>
                                             <p className="text-white/80 text-sm leading-relaxed">{service.targetAudience}</p>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@ export default function ServicesPage() {
                         />
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8">
                             {[
-                                { icon: '🎯', title: 'Proven Results', desc: '₹5 Cr+ in grants and NAAC A Grade achievements.' },
+                                { icon: '🎯', title: 'Proven Results', desc: '27+ awards and NAAC A Grade achievements across institutions.' },
                                 { icon: '🤝', title: 'Hands-on Mentorship', desc: 'Direct guidance from experienced academic leaders.' },
                                 { icon: '🌟', title: 'Visionary Strategy', desc: 'Designing futures for modern educational landscapes.' }
                             ].map((item, idx) => (

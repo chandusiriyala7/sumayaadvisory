@@ -36,24 +36,24 @@ export const stats = [
     },
     {
         id: 6,
-        value: "₹5 Cr+",
-        label: "Grants Secured",
-        description: "Competitive research and development funding",
-        icon: "💰"
-    },
-    {
-        id: 7,
         value: "27+",
         label: "Awards",
         description: "State, national, and international recognitions",
         icon: "🏆"
     },
     {
-        id: 8,
+        id: 7,
         value: "7",
         label: "Ph.D. Scholars",
         description: "Guided to successful doctoral completion",
         icon: "🎯"
+    },
+    {
+        id: 8,
+        value: "50+",
+        label: "Institutions Impacted",
+        description: "Through consultancy, mentorship, and strategic guidance",
+        icon: "🏛️"
     }
 ]
 

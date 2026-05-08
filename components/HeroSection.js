@@ -22,22 +22,10 @@ function AnimatedCounter({ value, duration = 2 }) {
 }
 
 export default function HeroSection() {
-    const [currentImage, setCurrentImage] = useState(0)
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     
-    const images = [
-        '/images/image.png',
-        '/images/image copy.png',
-        '/images/image copy 2.png',
-        '/images/image copy 3.png'
-    ]
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % images.length)
-        }, 5000)
-        return () => clearInterval(interval)
-    }, [images.length])
+    // Single professional image without name tag
+    const heroImage = '/images/sumaya-3.png'
 
     const handleMouseMove = (e) => {
         const rect = e.currentTarget.getBoundingClientRect()
@@ -126,7 +114,7 @@ export default function HeroSection() {
                         </motion.div>
 
                         <motion.div 
-                            className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-10 border-t border-slate-200 dark:border-academic-blue-800"
+                            className="grid grid-cols-2 gap-6 md:gap-8 pt-10 border-t border-slate-200 dark:border-academic-blue-800"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
@@ -149,18 +137,10 @@ export default function HeroSection() {
                                 </div>
                                 <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Awards Won</div>
                             </motion.div>
-                            <motion.div 
-                                className="col-span-2 md:col-span-1 border-t md:border-t-0 pt-6 md:pt-0"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ type: 'spring', stiffness: 300 }}
-                            >
-                                <div className="text-2xl md:text-3xl font-bold text-academic-blue-900 dark:text-academic-gold-400">5Cr+</div>
-                                <div className="text-[10px] md:text-sm text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Research Grants</div>
-                            </motion.div>
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Content - Premium Image Stack */}
+                    {/* Right Content - Single Professional Image */}
                     <motion.div 
                         className="relative h-[600px] hidden lg:block"
                         initial={{ opacity: 0, x: 40 }}
@@ -169,7 +149,7 @@ export default function HeroSection() {
                         onMouseMove={handleMouseMove}
                     >
                         <div className="absolute inset-0 flex items-center justify-center">
-                            {/* Main Active Image */}
+                            {/* Main Professional Image */}
                             <motion.div 
                                 className="relative w-[450px] h-[550px] z-20"
                                 style={{
@@ -185,23 +165,15 @@ export default function HeroSection() {
                                     transition={{ duration: 4, repeat: Infinity }}
                                 />
                                 <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white dark:border-academic-blue-800 shadow-2xl">
-                                    <motion.div
-                                        key={currentImage}
-                                        initial={{ opacity: 0, scale: 1.1 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.9 }}
-                                        transition={{ duration: 1 }}
-                                    >
-                                        <Image
-                                            src={images[currentImage]}
-                                            alt="The North Star"
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                            sizes="(max-width: 1024px) 100vw, 450px"
-                                            quality={90}
-                                        />
-                                    </motion.div>
+                                    <Image
+                                        src={heroImage}
+                                        alt="The North Star - Academic Leadership"
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                        sizes="(max-width: 1024px) 100vw, 450px"
+                                        quality={90}
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-t from-academic-blue-900/40 dark:from-academic-blue-950/60 to-transparent"></div>
                                 </div>
 
@@ -228,63 +200,10 @@ export default function HeroSection() {
                                     </div>
                                 </motion.div>
                             </motion.div>
-
-                            {/* Secondary Image Stack */}
-                            <motion.div 
-                                className="absolute top-10 right-0 w-48 h-64 z-10 opacity-40 blur-[1px]"
-                                animate={{ y: [0, -20, 0] }}
-                                transition={{ duration: 6, repeat: Infinity }}
-                            >
-                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
-                                    <Image
-                                        src={images[(currentImage + 1) % images.length]}
-                                        alt="Context"
-                                        fill
-                                        className="object-cover"
-                                        loading="lazy"
-                                        sizes="192px"
-                                        quality={75}
-                                    />
-                                </div>
-                            </motion.div>
-                            <motion.div 
-                                className="absolute bottom-10 left-0 w-48 h-64 z-10 opacity-40 blur-[1px]"
-                                animate={{ y: [0, 20, 0] }}
-                                transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-                            >
-                                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
-                                    <Image
-                                        src={images[(currentImage + 2) % images.length]}
-                                        alt="Context"
-                                        fill
-                                        className="object-cover"
-                                        loading="lazy"
-                                        sizes="192px"
-                                        quality={75}
-                                    />
-                                </div>
-                            </motion.div>
-                        </div>
-
-                        {/* Pagination Dots */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-3">
-                            {images.map((_, i) => (
-                                <motion.button
-                                    key={i}
-                                    onClick={() => setCurrentImage(i)}
-                                    className={`h-1.5 rounded-full transition-all duration-500 ${
-                                        currentImage === i 
-                                            ? 'bg-academic-gold-500 dark:bg-academic-gold-400 w-12' 
-                                            : 'bg-slate-300 dark:bg-slate-600 w-4'
-                                    }`}
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.9 }}
-                                />
-                            ))}
                         </div>
                     </motion.div>
 
-                    {/* Mobile Only Slider */}
+                    {/* Mobile Only Image */}
                     <motion.div 
                         className="lg:hidden relative h-[400px] w-full"
                         initial={{ opacity: 0, y: 40 }}
@@ -293,26 +212,14 @@ export default function HeroSection() {
                     >
                         <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white dark:border-academic-blue-800 shadow-xl">
                             <Image
-                                src={images[currentImage]}
-                                alt="Context"
+                                src={heroImage}
+                                alt="The North Star - Academic Leadership"
                                 fill
                                 className="object-cover"
                                 priority
                                 sizes="100vw"
                                 quality={85}
                             />
-                        </div>
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                            {images.map((_, i) => (
-                                <div 
-                                    key={i} 
-                                    className={`w-2 h-2 rounded-full transition-all ${
-                                        currentImage === i 
-                                            ? 'bg-academic-gold-500 dark:bg-academic-gold-400 w-8' 
-                                            : 'bg-white/50 dark:bg-white/30'
-                                    }`}
-                                />
-                            ))}
                         </div>
                     </motion.div>
                 </div>

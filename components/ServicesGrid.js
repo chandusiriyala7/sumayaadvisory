@@ -44,7 +44,7 @@ export default function ServicesGrid({ showAll = false }) {
                         <div className="pt-4 border-t border-academic-blue-200 dark:border-academic-blue-800">
                             <div className="highlight-box mb-4 dark:bg-academic-blue-800/30 dark:border-academic-gold-500/30">
                                 <p className="text-xs font-semibold text-academic-blue-800 dark:text-academic-blue-200 mb-1">
-                                    👥 Target Audience:
+                                    🤝 Who can partner?
                                 </p>
                                 <p className="text-sm text-gray-700 dark:text-gray-300">
                                     {service.targetAudience}
