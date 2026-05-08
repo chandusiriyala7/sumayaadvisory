@@ -90,7 +90,8 @@ export default function HeroSection() {
                         </motion.p>
 
                         <motion.div 
-                            className="flex flex-col sm:flex-row gap-4 pt-4 mb-12"
+                            className="flex flex-col sm:flex-row gap-4 pt-4"
+                            style={{ marginBottom: '50px' }}
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.25, duration: 0.5 }}
