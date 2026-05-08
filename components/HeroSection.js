@@ -115,7 +115,7 @@ export default function HeroSection() {
                         </motion.div>
 
                         <motion.div 
-                            className="grid grid-cols-2 gap-6 md:gap-8 pt-8 border-t border-slate-200 dark:border-academic-blue-800"
+                            className="grid grid-cols-2 gap-6 md:gap-8 pt-16 border-t border-slate-200 dark:border-academic-blue-800"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
