@@ -18,11 +18,6 @@ export default function Footer() {
         { href: '/contact', label: 'Contact' },
     ]
 
-    const actionLinks = [
-        { href: `mailto:${profile.contact.email}`, label: 'Email' },
-        { href: `tel:${phoneHref}`, label: 'Call' },
-    ]
-
     return (
         <footer className="bg-academic-blue-950 dark:bg-black text-white relative overflow-hidden pt-12 md:pt-0 transition-colors duration-300">
             {/* Gradient top border */}
@@ -53,23 +48,30 @@ export default function Footer() {
                                     Pioneering excellence in higher education and societal transformation through strategic advisory and academic leadership.
                                 </p>
                             </div>
-                            <div className="flex flex-wrap gap-4">
-                                {actionLinks.map((action) => (
-                                    <motion.a 
-                                        key={action.label} 
-                                        href={action.href}
-                                        whileHover={{ scale: 1.05, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 transition-all"
-                                    >
-                                        {action.label}
-                                    </motion.a>
-                                ))}
+                            <div className="flex flex-wrap gap-3 md:gap-4">
+                                <motion.a 
+                                    key="email"
+                                    href={`mailto:${profile.contact.email}`}
+                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="px-5 md:px-6 py-2.5 md:py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 hover:border-academic-gold-500 transition-all"
+                                >
+                                    Email
+                                </motion.a>
+                                <motion.a 
+                                    key="call"
+                                    href={`tel:${phoneHref}`}
+                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="px-5 md:px-6 py-2.5 md:py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 hover:border-academic-gold-500 transition-all"
+                                >
+                                    Call
+                                </motion.a>
                                 <motion.div
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <Link href="/contact" className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 transition-all inline-block">
+                                    <Link href="/contact" className="px-5 md:px-6 py-2.5 md:py-3 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-academic-gold-500 hover:text-academic-blue-950 hover:border-academic-gold-500 transition-all inline-block">
                                         Consult
                                     </Link>
                                 </motion.div>
