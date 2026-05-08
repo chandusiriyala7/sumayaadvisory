@@ -67,7 +67,7 @@ export default function ContactCTA() {
                         >
                             <Link
                                 href="/services"
-                                className="inline-flex items-center justify-center px-10 py-4 bg-white/5 border border-white/25 text-white rounded-full font-bold shadow-lg shadow-black/10 backdrop-blur-md hover:bg-academic-gold-500 hover:border-academic-gold-400 hover:text-academic-blue-950 hover:shadow-academic-gold-500/20 transition-all"
+                                className="inline-flex items-center justify-center px-10 py-4 bg-white/5 border border-white/25 text-white rounded-full font-bold shadow-lg shadow-black/10 backdrop-blur-md hover:bg-academic-gold-500 hover:border-academic-gold-400 hover:text-academic-blue-950 hover:shadow-academic-gold-500/20 transition-all mt-[25px] mb-[25px]"
                             >
                                 Explore Services
                             </Link>

@@ -107,7 +107,7 @@ export default function HeroSection() {
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block my-[25px]">
+                                <Link href="/services" className="btn-secondary text-base md:text-lg font-bold inline-block">
                                     Explore Services
                                 </Link>
                             </motion.div>
