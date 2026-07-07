@@ -101,6 +101,116 @@ export const services = [
         ],
         outcome: "Inspiration backed by credibility and experience",
         featured: false
+    },
+    {
+        id: 7,
+        title: "Institution Establishment & Sustainability Services",
+        category: "Public Sector / Flagship",
+        icon: "🏛️",
+        description: "End-to-end support for establishing new Schools, Colleges, Universities and Skill Development Centres — from feasibility to proposal preparation for public sectors, regulatory approval and long-term sustainability.",
+        targetAudience: "Trusts, management bodies, government & public sector institutions, CSR-backed education initiatives",
+        servicesIncluded: [
+            "Feasibility studies & market research",
+            "DPR & government/CSR proposal preparation",
+            "Statutory approvals, affiliation & accreditation readiness",
+            "Campus & infrastructure planning",
+            "SOPs, admissions, HR & ERP setup",
+            "Curriculum design & faculty development",
+            "Branding, website & admission campaigns",
+            "Multi-campus expansion & performance monitoring"
+        ],
+        outcome: "New institutions established with governance strategy and sustained growth built in",
+        featured: true,
+        subsections: [
+            {
+                heading: "Establishment of Institutions of Excellence with Governance Strategies Following the Parameters",
+                items: [
+                    "End-to-end support for establishing Schools, Colleges, Universities, Skill Development Centres and Educational Institutions",
+                    "Feasibility Studies & Market Research",
+                    "Institutional Vision, Mission & Strategic Planning",
+                    "Academic Planning & Programme Design",
+                    "Governance Structure Development",
+                    "Operational Blueprint & Institutional Framework"
+                ]
+            },
+            {
+                heading: "Proposal Preparation & Government Liaison",
+                items: [
+                    "DPR (Detailed Project Report) Preparation",
+                    "Project Proposal Development",
+                    "CSR Funding Proposals",
+                    "Government Grant & Scheme Proposal Preparation",
+                    "Public Sector Tender Documentation",
+                    "Documentation for Regulatory Bodies",
+                    "Investor & Funding Pitch Deck Preparation"
+                ]
+            },
+            {
+                heading: "Regulatory & Compliance Support",
+                items: [
+                    "Guidance for Statutory Approvals",
+                    "University Affiliation Support",
+                    "Accreditation Readiness",
+                    "Policy Documentation",
+                    "Compliance Framework Development",
+                    "Quality Assurance Systems"
+                ]
+            },
+            {
+                heading: "Infrastructure Planning",
+                items: [
+                    "Campus Planning Support",
+                    "Facility Requirement Planning",
+                    "Laboratory & Learning Space Planning",
+                    "Smart Campus Strategy",
+                    "Technology Integration Roadmap"
+                ]
+            },
+            {
+                heading: "Operational Setup",
+                items: [
+                    "SOP Development",
+                    "Administrative Process Design",
+                    "Admission Management Framework",
+                    "HR Policies & Recruitment Support",
+                    "ERP & Digital System Implementation",
+                    "Financial Planning & Budget Framework"
+                ]
+            },
+            {
+                heading: "Academic Excellence",
+                items: [
+                    "Curriculum Development",
+                    "Outcome-Based Education Framework",
+                    "Faculty Recruitment Support",
+                    "Faculty Development Programmes",
+                    "Academic Audit & Quality Improvement"
+                ]
+            },
+            {
+                heading: "Branding & Market Positioning",
+                items: [
+                    "Institution Branding Strategy",
+                    "Name, Identity & Brand Guidelines",
+                    "Website Development",
+                    "Digital Marketing",
+                    "Student Admission Campaigns",
+                    "Media & Public Relations"
+                ]
+            },
+            {
+                heading: "Sustainability & Growth",
+                items: [
+                    "Long-term Institutional Development Strategy",
+                    "Revenue Diversification Models",
+                    "Industry & International Collaborations",
+                    "Research & Innovation Ecosystem",
+                    "Ranking & Accreditation Strategy",
+                    "Institutional Performance Monitoring",
+                    "Expansion & Multi-campus Planning"
+                ]
+            }
+        ]
     }
 ]
 

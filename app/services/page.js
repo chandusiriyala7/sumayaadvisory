@@ -62,6 +62,24 @@ export default function ServicesPage() {
                                         ))}
                                     </div>
 
+                                    {service.subsections && (
+                                        <div className="space-y-8">
+                                            {service.subsections.map((sub, subIdx) => (
+                                                <div key={subIdx} className="space-y-4">
+                                                    <h4 className="text-lg font-serif font-bold text-academic-blue-900 dark:text-academic-blue-50">{sub.heading}</h4>
+                                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                                                        {sub.items.map((item, itemIdx) => (
+                                                            <li key={itemIdx} className="text-sm text-slate-600 dark:text-slate-300 flex items-start gap-2">
+                                                                <span className="text-academic-gold-500 mt-1">•</span>
+                                                                <span>{item}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="p-8 glass-gold dark:bg-academic-gold-400/10 rounded-3xl border border-academic-gold-200/50 dark:border-academic-gold-500/30 transition-colors duration-300">
                                             <h4 className="text-sm font-bold text-academic-gold-700 dark:text-academic-gold-300 uppercase tracking-widest mb-3">Institutional Impact</h4>

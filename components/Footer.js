@@ -137,9 +137,9 @@ export default function Footer() {
                     <div className="space-y-8">
                         <h4 className="text-sm font-black uppercase tracking-[0.3em] text-academic-gold-500 dark:text-academic-gold-400 mb-8">HQ</h4>
                         <div className="text-white/40 text-sm font-medium leading-loose uppercase tracking-tighter">
-                            Educational District,<br />
-                            Ramanathapuram,<br />
-                            Tamil Nadu, India.
+                            Benson Town,<br />
+                            Bangalore,<br />
+                            Karnataka, India.
                         </div>
                     </div>
                 </motion.div>

@@ -4,7 +4,7 @@ export const profile = {
     position: "Principal",
     institution: "Thassim Beevi Abdul Kader College for Women",
     institutionDetails: "Autonomous, NAAC 'A' Grade",
-    location: "Kilakarai, Tamil Nadu, India",
+    location: "Bangalore, Karnataka, India",
 
     tagline: "Academic Leadership & Institutional Excellence Consultancy",
 
@@ -24,9 +24,9 @@ export const profile = {
         landline: "04567-241934",
         email: "sumayaa.16@gmail.com",
         address: {
-            line1: "7/132 A, Principal's Quarters, PMS Campus",
-            line2: "Kilakarai – 623 517",
-            line3: "Ramanathapuram District, Tamil Nadu, India"
+            line1: "Building No. 76, 2nd Floor, Flat No. 201, Harmain Hyder Apartment",
+            line2: "(Opposite Sapphire Avenue), 2nd Cross Road, Benson Town, Byadarahalli",
+            line3: "Bangalore – 560046, Karnataka, India"
         }
     },
 
