@@ -18,7 +18,7 @@ export default function GallerySection() {
                         In Frame
                     </p>
                     <h2 className="text-3xl md:text-5xl font-serif font-bold text-academic-blue-900 dark:text-academic-blue-50 transition-colors duration-300">
-                        The Legacy Lens
+                        Frames of Excellence
                     </h2>
                 </motion.div>
             </div>
