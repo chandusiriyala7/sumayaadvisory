@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection'
 import ServicesGrid from '@/components/ServicesGrid'
 import StatsSection from '@/components/StatsSection'
 import AwardsHighlight from '@/components/AwardsHighlight'
+import GallerySection from '@/components/GallerySection'
 import ContactCTA from '@/components/ContactCTA'
 import SectionTitle from '@/components/SectionTitle'
 import { pageTransition } from '@/lib/animations'
@@ -52,6 +53,9 @@ export default function Home() {
                     <AwardsHighlight />
                 </div>
             </section>
+
+            {/* Gallery Section */}
+            <GallerySection />
 
             {/* Contact CTA */}
             <ContactCTA />
